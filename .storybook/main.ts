@@ -15,11 +15,11 @@ const config: StorybookConfig = {
   // ADDONS MÍNIMOS PARA PRESENTACIÓN - SIN TOOLBARS
   addons: [
     '@storybook/addon-docs',  // Solo documentación
+    '@storybook/addon-backgrounds', // ✅ Necesario para el fondo claro
     // ❌ Removidos todos los addons que generan toolbars:
     // '@storybook/addon-controls',
     // '@storybook/addon-actions', 
     // '@storybook/addon-viewport',
-    // '@storybook/addon-backgrounds',
     // '@storybook/addon-measure',
     // '@storybook/addon-outline'
   ],

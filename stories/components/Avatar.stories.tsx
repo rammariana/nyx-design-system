@@ -136,7 +136,7 @@ export const Default: Story = {
 // Story con imagen (usando placeholder que siempre funciona)
 export const WithImage: Story = {
   args: {
-    image: 'https://via.placeholder.com/150x150/3b82f6/ffffff?text=JD',
+    image: 'https://img.freepik.com/fotos-premium/hes-mover-and-shaker-shot-joven-hombre-negocios-oficina-corporativa_590464-16850.jpg',
     alt: 'John Doe',
   },
 };
@@ -144,7 +144,7 @@ export const WithImage: Story = {
 // Story que muestra fallback de imagen a texto
 export const ImageWithFallback: Story = {
   args: {
-    image: 'https://imagen-que-no-existe.com/avatar.jpg',
+    image: 'https://img.freepik.com/fotos-premium/hes-mover-and-shaker-shot-joven-hombre-negocios-oficina-corporativa_590464-16850.jpg',
     text: 'JD',
     alt: 'John Doe',
   },
@@ -276,17 +276,17 @@ export const WithImages: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 'var(--spacing-4)', alignItems: 'center' }}>
       <Avatar 
-        image="https://via.placeholder.com/150x150/ef4444/ffffff?text=JD"
+        image="https://media.istockphoto.com/id/495827884/es/foto/se-desconoce-el-creador-de-su-propio-%C3%A9xito.jpg?s=612x612&w=0&k=20&c=abYWrY7yMFHAz7LJDRwT7jNLIWY73NcHHODpn97Wx2Y="
         alt="John Doe"
         size="medium"
       />
       <Avatar 
-        image="https://via.placeholder.com/150x150/22c55e/ffffff?text=JS"
+        image="https://img.freepik.com/foto-gratis/retrato-mujer-feliz-tableta-digital_329181-11681.jpg?semt=ais_incoming&w=740&q=80"
         alt="Jane Smith"
         size="medium"
       />
       <Avatar 
-        image="https://via.placeholder.com/150x150/8b5cf6/ffffff?text=MJ"
+        image="https://media.istockphoto.com/id/1487345042/es/foto/joven-empresario-sonriente-parado-en-el-pasillo-de-una-oficina.jpg?s=612x612&w=0&k=20&c=Kf4QYQ4n_WKSyen7e05NAhuW9c9IFxEyrR7ztCXM520="
         alt="Mike Johnson"
         size="medium"
       />
@@ -380,7 +380,7 @@ export const AccessibilityExample: Story = {
         onClick={() => alert('Navegando al perfil de John Doe')}
       />
       <Avatar 
-        image="https://via.placeholder.com/150x150/22c55e/ffffff?text=JS"
+        image="https://st.depositphotos.com/1743476/2267/i/450/depositphotos_22675279-stock-photo-businesswoman.jpg"
         alt="Avatar de Jane Smith, usuario editor"
         onClick={() => alert('Navegando al perfil de Jane Smith')}
       />

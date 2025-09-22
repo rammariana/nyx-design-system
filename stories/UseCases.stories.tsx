@@ -10,29 +10,29 @@ const UseCasesPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   
   return (
-    <div style={{ padding: '2rem', color: '#f9fafb' }}>
-      <h1 style={{ color: '#f9fafb' }}>Casos de Uso Reales</h1>
-      <p style={{ color: '#d1d5db' }}>
+    <div style={{ padding: '2rem', color: '#1f2937', backgroundColor: '#ffffff' }}>
+      <h1 style={{ color: '#1f2937' }}>Casos de Uso Reales</h1>
+      <p style={{ color: '#6b7280' }}>
         Ejemplos prácticos de cómo implementar Nyx Design System en aplicaciones reales, 
         mostrando la versatilidad y potencia del sistema.
       </p>
 
-      <h2 style={{ color: '#f9fafb' }}>Dashboard Empresarial</h2>
+      <h2 style={{ color: '#1f2937' }}>Dashboard Empresarial</h2>
       <div style={{ 
         border: '1px solid #374151', 
         borderRadius: '12px',
         padding: '2rem',
         margin: '2rem 0',
-        background: '#1f2937'
+        background: '#ffffff'
       }}>
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
           <div style={{ flex: '0 0 250px' }}>
-            <h4 style={{ color: '#f9fafb' }}>Navegación Principal</h4>
+            <h4 style={{ color: '#1f2937' }}>Navegación Principal</h4>
             <div style={{ 
               border: '1px solid #4b5563', 
               borderRadius: '8px',
               padding: '1rem',
-              background: '#111827'
+              background: '#ffffff'
             }}>
               <Sidebar
                 isOpen={true}
@@ -50,12 +50,12 @@ const UseCasesPage = () => {
           </div>
           
           <div style={{ flex: '1' }}>
-            <h4 style={{ color: '#f9fafb' }}>Contenido Principal</h4>
+            <h4 style={{ color: '#1f2937' }}>Contenido Principal</h4>
             <div style={{ 
               border: '1px solid #4b5563', 
               borderRadius: '8px',
               padding: '1.5rem',
-              background: '#111827'
+              background: '#ffffff'
             }}>
               <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
                 <TagComponent variant="success">Activo</TagComponent>
@@ -78,13 +78,13 @@ const UseCasesPage = () => {
         </div>
       </div>
 
-      <h2 style={{ color: '#f9fafb' }}>Aplicación Móvil</h2>
+      <h2 style={{ color: '#1f2937' }}>Aplicación Móvil</h2>
       <div style={{ 
         border: '1px solid #374151', 
         borderRadius: '12px',
         padding: '2rem',
         margin: '2rem 0',
-        background: '#1f2937'
+        background: '#ffffff'
       }}>
         <div style={{ 
           maxWidth: '375px', 
@@ -92,9 +92,9 @@ const UseCasesPage = () => {
           border: '1px solid #4b5563',
           borderRadius: '20px',
           padding: '1rem',
-          background: '#111827'
+          background: '#ffffff'
         }}>
-          <h4 style={{ textAlign: 'center', marginBottom: '1rem', color: '#f9fafb' }}>App Móvil</h4>
+          <h4 style={{ textAlign: 'center', marginBottom: '1rem', color: '#1f2937' }}>App Móvil</h4>
           
           <div style={{ marginBottom: '1rem' }}>
             <Input placeholder="¿Qué necesitas?" />
@@ -117,22 +117,22 @@ const UseCasesPage = () => {
         </div>
       </div>
 
-      <h2 style={{ color: '#f9fafb' }}>E-commerce</h2>
+      <h2 style={{ color: '#1f2937' }}>E-commerce</h2>
       <div style={{ 
         border: '1px solid #374151', 
         borderRadius: '12px',
         padding: '2rem',
         margin: '2rem 0',
-        background: '#1f2937'
+        background: '#ffffff'
       }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem' }}>
           <div>
-            <h4 style={{ color: '#f9fafb' }}>Producto</h4>
+            <h4 style={{ color: '#1f2937' }}>Producto</h4>
             <div style={{ 
               border: '1px solid #4b5563', 
               borderRadius: '8px',
               padding: '1rem',
-              background: '#111827'
+              background: '#ffffff'
             }}>
               <div style={{ 
                 height: '120px', 
@@ -147,7 +147,7 @@ const UseCasesPage = () => {
                 Imagen del Producto
               </div>
               
-              <h5 style={{ margin: '0.5rem 0', color: '#f9fafb' }}>Producto Ejemplo</h5>
+              <h5 style={{ margin: '0.5rem 0', color: '#1f2937' }}>Producto Ejemplo</h5>
               <p style={{ color: '#9ca3af', fontSize: '0.875rem', marginBottom: '1rem' }}>
                 Descripción del producto con detalles importantes.
               </p>
@@ -165,12 +165,12 @@ const UseCasesPage = () => {
           </div>
           
           <div>
-            <h4 style={{ color: '#f9fafb' }}>Carrito</h4>
+            <h4 style={{ color: '#1f2937' }}>Carrito</h4>
             <div style={{ 
               border: '1px solid #4b5563', 
               borderRadius: '8px',
               padding: '1rem',
-              background: '#111827'
+              background: '#ffffff'
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', color: '#d1d5db' }}>
                 <span>Subtotal</span>
@@ -186,7 +186,7 @@ const UseCasesPage = () => {
                 marginBottom: '1rem',
                 paddingTop: '1rem',
                 borderTop: '1px solid #374151',
-                color: '#f9fafb'
+                color: '#1f2937'
               }}>
                 <strong>Total</strong>
                 <strong>$99.99</strong>

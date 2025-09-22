@@ -17,15 +17,15 @@ const preview: Preview = {
       toc: true,
     },
     backgrounds: {
-      default: 'dark',
+      default: 'light',
       values: [
-        {
-          name: 'dark',
-          value: '#0f0f23',
-        },
         {
           name: 'light',
           value: '#ffffff',
+        },
+        {
+          name: 'dark',
+          value: '#0f0f23',
         },
       ],
     },
@@ -63,7 +63,9 @@ const preview: Preview = {
         ['Atoms', 'Molecules', 'Organisms'],
       ],
     },
+    
   },
+  
 };
 
 export default preview;
