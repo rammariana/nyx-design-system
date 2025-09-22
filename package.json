@@ -109,14 +109,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/camtom/nyx-design-system.git",
+    "url": "https://github.com/rammariana/nyx-design-system.git",
     "directory": "packages/nyx-design-system"
   },
   "bugs": {
-    "url": "https://github.com/camtom/nyx-design-system/issues",
+    "url": "https://github.com/rammariana/nyx-design-system/issues",
     "email": "hello@camtomx.com"
   },
-  "homepage": "https://github.com/camtom/nyx-design-system#readme",
+  "homepage": "https://github.com/rammariana/nyx-design-system#readme",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/camtom"

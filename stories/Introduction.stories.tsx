@@ -47,7 +47,7 @@ const IntroductionPage = () => (
         <p style={{ color: '#6b7280' }}>Combinaciones: SearchBox, Card, Modal, Banner</p>
       </div>
       <div style={{ padding: '1rem', border: '1px solid #e5e7eb', borderRadius: '8px', background: '#ffffff' }}>
-        <h3 style={{ color: '#10b981' }}>Organisms</h3>
+        <h3 style={{ color: '#8b5cf6' }}>Organisms</h3>
         <p style={{ color: '#6b7280' }}>Estructuras complejas: Sidebar, SidePanel, QueryBox</p>
       </div>
     </div>
@@ -55,11 +55,11 @@ const IntroductionPage = () => (
     <h2 style={{ color: '#1f2937' }}>Beneficios Cuantificables</h2>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', margin: '2rem 0' }}>
       <div style={{ padding: '1rem', background: '#ffffff', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
-        <h3 style={{ color: '#10b981' }}>Desarrollo Más Rápido</h3>
+        <h3 style={{ color: '#8b5cf6' }}>Desarrollo Más Rápido</h3>
         <p style={{ color: '#6b7280' }}>Componentes reutilizables aceleran el tiempo de desarrollo</p>
       </div>
       <div style={{ padding: '1rem', background: '#ffffff', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
-        <h3 style={{ color: '#f59e0b' }}>Menos Errores</h3>
+        <h3 style={{ color: '#8b5cf6' }}>Menos Errores</h3>
         <p style={{ color: '#6b7280' }}>Componentes probados reducen bugs visuales</p>
       </div>
       <div style={{ padding: '1rem', background: '#ffffff', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
