@@ -1,5 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import { mergeConfig } from 'vite';
+import path from 'path';
 
 const config: StorybookConfig = {
   // Solo incluir las páginas de presentación y documentación
@@ -49,7 +50,7 @@ const config: StorybookConfig = {
     return mergeConfig(config, {
       resolve: {
         alias: {
-          '@': '/Users/mariana/Documents/camtom/nyx-design-system/src',
+          '@': path.resolve(__dirname, '../src'),
         },
       },
     });

@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
-import '../src/styles/tokens.css';
-import '../src/styles/reset.css';
+import '@/styles/tokens.css';
+import '@/styles/reset.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -54,9 +54,7 @@ const preview: Preview = {
         },
       },
     },
-  },
-  // Configurar el orden de las historias
-  options: {
+    // Configurar el orden de las historias
     storySort: {
       order: [
         'Nyx Design System',
