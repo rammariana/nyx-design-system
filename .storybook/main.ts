@@ -42,9 +42,7 @@ const config: StorybookConfig = {
     },
   },
   
-  // Custom favicon para presentación
-  managerHead: (head) => `${head}<link rel="icon" href="/favicon.ico" />`,
-  previewHead: (head) => `${head}<link rel="icon" href="/favicon.ico" />`,
+  // Favicon configurado en manager-head.html
   
   async viteFinal(config) {
     return mergeConfig(config, {
