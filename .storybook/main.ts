@@ -50,7 +50,7 @@ const config: StorybookConfig = {
     return mergeConfig(config, {
       resolve: {
         alias: {
-          '@': path.resolve(__dirname, '../src'),
+          '@': path.resolve(process.cwd(), 'src'),
         },
       },
     });
