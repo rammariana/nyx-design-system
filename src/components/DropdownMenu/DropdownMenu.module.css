@@ -1,0 +1,67 @@
+/* Contenedor principal que envuelve el trigger y el menú */
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+/* El panel que se despliega */
+.menu {
+  position: absolute;
+  z-index: 1000;
+  min-width: 280px; /* Solo como fallback */
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px var(--color-blue-750-15);
+  overflow: hidden;
+  animation: slideUpFadeIn 0.2s ease-out;
+  transform-origin: bottom right;
+  padding: 2rem;
+}
+
+/* Agregar esta regla */
+.menu[style*="width"] {
+  min-width: unset !important;
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --- Posicionamiento --- */
+.bottom-right {
+  top: calc(100% + 8px); /* 8px de espacio DEBAJO del botón */
+  right: 0;
+  transform-origin: top right; /* Animación desde arriba a la derecha */
+}
+
+.bottom-left {
+  top: calc(100% + 8px); /* 8px de espacio DEBAJO del botón */
+  left: 0;
+  transform-origin: top left; /* Animación desde arriba a la izquierda */
+}
+
+/* --- NUEVAS POSICIONES HACIA ARRIBA --- */
+.top-right {
+  bottom: calc(100% + 8px); /* 8px de espacio ARRIBA del botón */
+  right: 0;
+  transform-origin: bottom right; /* Animación desde abajo a la derecha */
+}
+
+.top-left {
+  bottom: calc(100% + 8px); /* 8px de espacio ARRIBA del botón */
+  left: 0;
+  transform-origin: bottom left; /* Animación desde abajo a la izquierda */
+} 
+
+/* Agregar esta regla al final del archivo */
+.menu.customWidth {
+  min-width: unset !important;
+  width: var(--custom-width) !important;
+}

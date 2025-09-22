@@ -1,0 +1,283 @@
+/* Base containers */
+.inline {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  width: 100%;
+}
+
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  z-index: var(--z-modal);
+}
+
+/* Spinner variant - Gradiente morado/cyan con blur (del frontend) */
+.spinner {
+  width: 1.5em;
+  height: 1.5em;
+  position: relative;
+  background: linear-gradient(90deg, #AE35FF 0%, #46FFCE 100%);
+  border-radius: 50%;
+  animation:
+    blobMorph 3s infinite alternate cubic-bezier(0.45,0,0.55,1),
+    float 2.5s ease-in-out infinite;
+  box-shadow: 0 0 20px 5px #AE35FF44, 0 0 20px 5px #46FFCE44;
+}
+
+.spinner::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #AE35FF 0%, #46FFCE 100%);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+/* Dots variant */
+.dotsContainer {
+  display: flex;
+  gap: var(--spacing-1);
+  align-items: center;
+}
+
+.dot {
+  width: 0.5em;
+  height: 0.5em;
+  background-color: var(--color-primary-500);
+  border-radius: 50%;
+  animation: bounce 1.4s ease-in-out infinite both;
+}
+
+.dot:nth-child(1) { animation-delay: -0.32s; }
+.dot:nth-child(2) { animation-delay: -0.16s; }
+.dot:nth-child(3) { animation-delay: 0s; }
+
+/* Pulse variant */
+.pulse {
+  width: 1.5em;
+  height: 1.5em;
+  background-color: var(--color-primary-500);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Fullscreen orbit variant */
+.orbitContainer {
+  --uib-size: 120px;
+  --uib-speed: 2.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: var(--uib-size);
+  width: var(--uib-size);
+}
+
+.slice {
+  position: relative;
+  height: calc(var(--uib-size) / 6);
+  width: 100%;
+}
+
+.slice::before,
+.slice::after {
+  --uib-a: calc(var(--uib-speed) / -2);
+  --uib-b: calc(var(--uib-speed) / -6);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(50% - var(--uib-size) / 12);
+  height: 100%;
+  width: calc(100% / 6);
+  border-radius: 50%;
+  animation: orbit var(--uib-speed) linear infinite;
+}
+
+/* Orbit animation delays */
+.slice:nth-child(1)::after { animation-delay: var(--uib-a); }
+.slice:nth-child(2)::before { animation-delay: var(--uib-b); }
+.slice:nth-child(2)::after { animation-delay: calc(var(--uib-a) + var(--uib-b)); }
+.slice:nth-child(3)::before { animation-delay: calc(var(--uib-b) * 2); }
+.slice:nth-child(3)::after { animation-delay: calc(var(--uib-a) + var(--uib-b) * 2); }
+.slice:nth-child(4)::before { animation-delay: calc(var(--uib-b) * 3); }
+.slice:nth-child(4)::after { animation-delay: calc(var(--uib-a) + var(--uib-b) * 3); }
+.slice:nth-child(5)::before { animation-delay: calc(var(--uib-b) * 4); }
+.slice:nth-child(5)::after { animation-delay: calc(var(--uib-a) + var(--uib-b) * 4); }
+.slice:nth-child(6)::before { animation-delay: calc(var(--uib-b) * 5); }
+.slice:nth-child(6)::after { animation-delay: calc(var(--uib-a) + var(--uib-b) * 5); }
+
+/* Orbit colors */
+.slice:nth-child(1)::before, .slice:nth-child(1)::after { background-color: var(--color-primary-600); }
+.slice:nth-child(2)::before, .slice:nth-child(2)::after { background-color: var(--color-primary-500); }
+.slice:nth-child(3)::before, .slice:nth-child(3)::after { background-color: var(--color-primary-400); }
+.slice:nth-child(4)::before, .slice:nth-child(4)::after { background-color: var(--color-primary-300); }
+.slice:nth-child(5)::before, .slice:nth-child(5)::after { background-color: var(--color-primary-200); }
+.slice:nth-child(6)::before, .slice:nth-child(6)::after { background-color: var(--color-primary-100); }
+
+/* Sizes */
+.small .spinner,
+.small .pulse {
+  width: 1em;
+  height: 1em;
+}
+
+.small .dot {
+  width: 0.375em;
+  height: 0.375em;
+}
+
+.medium .spinner,
+.medium .pulse {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.medium .dot {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.large .spinner,
+.large .pulse {
+  width: 2em;
+  height: 2em;
+}
+
+.large .dot {
+  width: 0.75em;
+  height: 0.75em;
+}
+
+/* Message */
+.message {
+  color: var(--color-gray-600);
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
+}
+
+.fullscreen .message {
+  margin-top: var(--spacing-4);
+  color: var(--color-gray-700);
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+}
+
+/* Progress */
+.progress {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  margin-left: var(--spacing-1);
+  color: var(--color-gray-600);
+}
+
+.progressContainer {
+  margin-top: var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+  width: 200px;
+}
+
+.progressBar {
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: var(--color-primary-500);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-700);
+}
+
+/* Animations */
+@keyframes blobMorph {
+  0% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+  20% { border-radius: 70% 30% 80% 20% / 60% 80% 20% 40%; }
+  40% { border-radius: 45% 60% 50% 60% / 45% 50% 60% 40%; }
+  60% { border-radius: 30% 70% 40% 60% / 80% 30% 70% 60%; }
+  80% { border-radius: 60% 40% 30% 70% / 50% 80% 30% 90%; }
+  100% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes orbit {
+  0% { transform: translateX(calc(var(--uib-size) * 0.25)) scale(0.73684); opacity: 0.65; }
+  5% { transform: translateX(calc(var(--uib-size) * 0.235)) scale(0.684208); opacity: 0.58; }
+  10% { transform: translateX(calc(var(--uib-size) * 0.182)) scale(0.631576); opacity: 0.51; }
+  15% { transform: translateX(calc(var(--uib-size) * 0.129)) scale(0.578944); opacity: 0.44; }
+  20% { transform: translateX(calc(var(--uib-size) * 0.076)) scale(0.526312); opacity: 0.37; }
+  25% { transform: translateX(0%) scale(0.47368); opacity: 0.3; }
+  30% { transform: translateX(calc(var(--uib-size) * -0.076)) scale(0.526312); opacity: 0.37; }
+  35% { transform: translateX(calc(var(--uib-size) * -0.129)) scale(0.578944); opacity: 0.44; }
+  40% { transform: translateX(calc(var(--uib-size) * -0.182)) scale(0.631576); opacity: 0.51; }
+  45% { transform: translateX(calc(var(--uib-size) * -0.235)) scale(0.684208); opacity: 0.58; }
+  50% { transform: translateX(calc(var(--uib-size) * -0.25)) scale(0.73684); opacity: 0.65; }
+  55% { transform: translateX(calc(var(--uib-size) * -0.235)) scale(0.789472); opacity: 0.72; }
+  60% { transform: translateX(calc(var(--uib-size) * -0.182)) scale(0.842104); opacity: 0.79; }
+  65% { transform: translateX(calc(var(--uib-size) * -0.129)) scale(0.894736); opacity: 0.86; }
+  70% { transform: translateX(calc(var(--uib-size) * -0.076)) scale(0.947368); opacity: 0.93; }
+  75% { transform: translateX(0%) scale(1); opacity: 1; }
+  80% { transform: translateX(calc(var(--uib-size) * 0.076)) scale(0.947368); opacity: 0.93; }
+  85% { transform: translateX(calc(var(--uib-size) * 0.129)) scale(0.894736); opacity: 0.86; }
+  90% { transform: translateX(calc(var(--uib-size) * 0.182)) scale(0.842104); opacity: 0.79; }
+  95% { transform: translateX(calc(var(--uib-size) * 0.235)) scale(0.789472); opacity: 0.72; }
+  100% { transform: translateX(calc(var(--uib-size) * 0.25)) scale(0.73684); opacity: 0.65; }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .fullscreen .message {
+    font-size: var(--text-base);
+  }
+  
+  .progressContainer {
+    width: 150px;
+  }
+}

@@ -1,0 +1,80 @@
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-gray-125);
+  color: var(--color-gray-700);
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sizes */
+.small {
+  width: 32px;
+  height: 32px;
+  font-size: 0.875rem;
+}
+
+.medium {
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+}
+
+.large {
+  width: 56px;
+  height: 56px;
+  font-size: 1.5rem;
+}
+
+.xlarge {
+  width: 72px;
+  height: 72px;
+  font-size: 1.75rem;
+}
+
+/* Variants */
+.circle {
+  border-radius: 50%;
+}
+
+.square {
+  border-radius: 8px;
+}
+
+.rounded {
+  border-radius: 12px;
+}
+
+/* States */
+.active {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 2px var(--color-primary-100);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  transform: scale(1.05);
+}
+
+.clickable:focus {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Image */
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}

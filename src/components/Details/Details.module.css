@@ -1,0 +1,108 @@
+/* --- Contenedor Principal (<details>) --- */
+.container {
+  width: 100%;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+/* --- Summary (<summary>) --- */
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  list-style: none; /* Oculta el marcador por defecto */
+  width: 100%;
+}
+.summary::-webkit-details-marker {
+  display: none; /* Oculta el marcador en Chrome/Safari */
+}
+
+/* Contenido del summary (icono + texto) */
+.summaryContent {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* 12px */
+}
+
+/* Icono (círculo con chevron) */
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-gray-800);
+  color: white;
+  transition: transform 0.2s ease-in-out;
+}
+.icon i {
+  font-size: 0.875rem; /* 14px */
+}
+
+/* Rotación del icono cuando está abierto */
+.container[open] .icon {
+  transform: rotate(90deg);
+}
+
+.summaryText {
+  font-weight: 500;
+  color: var(--color-gray-800);
+}
+
+/* --- Píldora de estado --- */
+.pill {
+  flex-shrink: 0; /* Evita que la píldora se encoja */
+}
+
+/* --- Contenido expandible (<div>) --- */
+.content {
+  padding: 1rem 0 0.5rem 2.75rem; /* Alinear con el texto del summary */
+  color: var(--color-gray-700);
+}
+
+
+/* --- Variantes --- */
+
+/* Variante "Card" */
+.card {
+  background-color: var(--color-gray-50);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-large);
+}
+.card:hover {
+  background-color: var(--color-gray-100);
+}
+
+/* Variante "Ghost" */
+.ghost {
+  background-color: transparent;
+  padding: 0.5rem 0;
+}
+.ghost .summaryText {
+  color: var(--color-gray-600);
+}
+.ghost .icon {
+  color: var(--color-gray-800);
+}
+
+/* --- Variante "Ghost con Ícono Circular" --- */
+.ghost-circle-icon {
+  background-color: transparent;
+  border: none;
+  padding: 1.5rem 0; /* Aumenta el espaciado vertical aquí */
+}
+.ghost-circle-icon .summaryText {
+  color: var(--color-gray-800);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+.ghost-circle-icon .icon {
+  background-color: var(--color-gray-800);
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+}

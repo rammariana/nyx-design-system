@@ -1,0 +1,27 @@
+.sidePanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: -2px 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0);
+}
+
+/* ✅ Variante para lado izquierdo */
+.leftPanel {
+  right: auto;
+  left: 0;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #e9ecef;
+}
+
+.content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+}

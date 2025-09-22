@@ -1,0 +1,145 @@
+<style>
+  /* Personalización adicional del tema */
+  .sb-show-main {
+    background: #0f0f23 !important;
+  }
+  
+  /* Mejorar la apariencia de los componentes */
+  .docs-story {
+    background: #1a1a2e !important;
+  }
+  
+  /* Personalizar el logo de Storybook */
+  .sidebar-header .sidebar-header__logo {
+    display: none !important;
+  }
+  
+  /* Personalizar el título de la marca */
+  .sidebar-header .sidebar-header__title {
+    color: #6366f1 !important;
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+  }
+  
+  /* Mejorar el contraste del texto */
+  .docs-story h1,
+  .docs-story h2,
+  .docs-story h3,
+  .docs-story h4,
+  .docs-story h5,
+  .docs-story h6 {
+    color: #f9fafb !important;
+  }
+  
+  .docs-story p {
+    color: #d1d5db !important;
+  }
+  
+  /* Mejorar el contraste de los códigos */
+  .docs-story code {
+    background: #1f2937 !important;
+    color: #f9fafb !important;
+    border: 1px solid #374151 !important;
+  }
+  
+  /* Mejorar el contraste de las listas */
+  .docs-story ul,
+  .docs-story ol {
+    color: #d1d5db !important;
+  }
+  
+  .docs-story li {
+    color: #d1d5db !important;
+  }
+
+  /* OCULTAR COMPLETAMENTE LA TOOLBAR DE STORYBOOK */
+  /* Ocultar toda la barra superior */
+  .os-host .os-padding .os-viewport .os-content > div:first-child,
+  .os-host .os-padding .os-viewport .os-content > div:first-child > div,
+  .os-host .os-padding .os-viewport .os-content > div:first-child > div > div {
+    display: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+  }
+  
+  /* Ocultar toolbar completa */
+  [data-testid="toolbar"],
+  [data-testid="zoom"],
+  [data-testid="fullscreen"],
+  [data-testid="external"],
+  [data-testid="share"] {
+    display: none !important;
+  }
+  
+  /* Ocultar todos los botones de la toolbar */
+  button[title*="Zoom"],
+  button[title*="Fullscreen"],
+  button[title*="External"],
+  button[title*="Share"],
+  button[aria-label*="zoom"],
+  button[aria-label*="fullscreen"],
+  button[aria-label*="Refresh"],
+  button[aria-label*="Zoom in"],
+  button[aria-label*="Zoom out"],
+  button[aria-label*="Reset zoom"],
+  button[aria-label*="Open in new tab"],
+  button[aria-label*="Copy link"] {
+    display: none !important;
+  }
+  
+  /* Ocultar elementos específicos de Storybook */
+  .os-host .os-padding .os-viewport .os-content > div:first-child {
+    display: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+  }
+  
+  /* Ocultar cualquier elemento con iconos de Storybook */
+  svg[data-testid*="icon"],
+  button svg,
+  .os-host button {
+    display: none !important;
+  }
+  
+  /* Ocultar la tuerca y todos los controles */
+  .os-host .os-padding .os-viewport .os-content > div:first-child * {
+    display: none !important;
+  }
+  
+  /* CSS MÁS AGRESIVO PARA OCULTAR TODO */
+  /* Ocultar cualquier toolbar o barra superior */
+  .os-host > div:first-child,
+  .os-host .os-padding > div:first-child,
+  .os-host .os-viewport > div:first-child {
+    display: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+  }
+  
+  /* Ocultar todos los botones en el área superior */
+  .os-host button,
+  .os-host svg,
+  .os-host [role="button"] {
+    display: none !important;
+  }
+  
+  /* Ocultar elementos con clases específicas */
+  .os-host .os-padding .os-viewport .os-content > div:first-child,
+  .os-host .os-padding .os-viewport .os-content > div:first-child > *,
+  .os-host .os-padding .os-viewport .os-content > div:first-child > * > * {
+    display: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+  }
+  
+  /* Ocultar cualquier elemento que contenga iconos */
+  .os-host [class*="icon"],
+  .os-host [class*="toolbar"],
+  .os-host [class*="control"] {
+    display: none !important;
+  }
+</style>

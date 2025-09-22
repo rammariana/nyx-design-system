@@ -1,0 +1,121 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  backdrop-filter: blur(4px);
+  padding: var(--spacing-4);
+}
+
+.modal {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Sizes */
+.small {
+  max-width: 400px;
+}
+
+.medium {
+  max-width: 500px;
+}
+
+.large {
+  max-width: 700px;
+}
+
+.full {
+  max-width: 95vw;
+  max-height: 95vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-900);
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--color-gray-500);
+  cursor: pointer;
+  padding: var(--spacing-1);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.closeButton:hover {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-700);
+}
+
+.closeButton:focus {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+.body {
+  color: var(--color-gray-600);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  flex: 1;
+  overflow-y: auto;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-3);
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--color-gray-200);
+  margin-top: var(--spacing-2);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .overlay {
+    padding: var(--spacing-2);
+  }
+  
+  .modal {
+    padding: var(--spacing-4);
+    max-height: 95vh;
+  }
+  
+  .small,
+  .medium,
+  .large {
+    max-width: 100%;
+  }
+  
+  .title {
+    font-size: var(--text-lg);
+  }
+}
