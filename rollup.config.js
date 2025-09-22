@@ -21,18 +21,21 @@ export default {
   plugins: [
     peerDepsExternal(),
     resolve({
-      browser: true
+      browser: true,
+      extensions: ['.js', '.jsx', '.ts', '.tsx']
+    }),
+    postcss({
+      modules: true,
+      extract: 'index.css',
+      minimize: true,
+      include: ['src/**/*.css'],
+      exclude: ['node_modules/**']
     }),
     typescript({
       tsconfig: './tsconfig.json',
       declaration: true,
       declarationDir: './dist'
-    }),
-    postcss({
-      modules: true,
-      extract: 'index.css',
-      minimize: true
     })
   ],
-  external: ['react', 'react-dom']
+  external: ['react', 'react-dom', 'bootstrap-icons/font/bootstrap-icons.css']
 };
