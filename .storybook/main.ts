@@ -53,6 +53,13 @@ const config: StorybookConfig = {
           '@': path.resolve(process.cwd(), 'src'),
         },
       },
+      css: {
+        preprocessorOptions: {
+          css: {
+            charset: false
+          }
+        }
+      }
     });
   },
 };

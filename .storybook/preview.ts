@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
-import '@/styles/tokens.css';
-import '@/styles/reset.css';
+import './tokens.css';
+import './reset.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
