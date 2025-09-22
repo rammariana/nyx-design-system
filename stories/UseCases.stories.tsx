@@ -39,10 +39,10 @@ const UseCasesPage = () => {
                 logoExpanded="https://firebasestorage.googleapis.com/v0/b/auth-camtom.appspot.com/o/Group%205.png?alt=media&token=66714127-4cca-417b-b934-9c1364edb0c6"
                 logoCollapsed="https://firebasestorage.googleapis.com/v0/b/auth-camtom.appspot.com/o/Group%205.png?alt=media&token=66714127-4cca-417b-b934-9c1364edb0c6"
                 menuItems={[
-                  { label: 'Dashboard', icon: 'bi-house', href: '/dashboard' },
-                  { label: 'Usuarios', icon: 'bi-people', href: '/users' },
-                  { label: 'Reportes', icon: 'bi-graph-up', href: '/reports' },
-                  { label: 'Configuración', icon: 'bi-gear', href: '/settings' }
+                  { id: 'dashboard', label: 'Dashboard', icon: 'bi-house', href: '/dashboard' },
+                  { id: 'users', label: 'Usuarios', icon: 'bi-people', href: '/users' },
+                  { id: 'reports', label: 'Reportes', icon: 'bi-graph-up', href: '/reports' },
+                  { id: 'settings', label: 'Configuración', icon: 'bi-gear', href: '/settings' }
                 ]}
                 footerContent="Empresa v1.0"
               />
