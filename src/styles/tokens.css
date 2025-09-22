@@ -1,0 +1,161 @@
+:root {
+  /* Radios */
+  --radius-small: 6px;
+  --radius-sm: 6px;
+  --radius-medium: 10px;
+  --radius-md: 10px;
+  --radius-large: 20px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+  --radius-pill: 50px; 
+
+  /* Espaciado */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
+  --spacing-8: 32px;
+  --spacing-9: 36px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+
+  /* Tipografía */
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --leading-none: 1;
+
+  /* Transiciones */
+  --transition-fast: all 0.2s ease;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  /* Paleta de Colores Semántica */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+
+  /* Grises */
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #F8F8F8;
+  --color-gray-125: #F1F1F1;
+  --color-gray-150: #efeeee; /* --bg-top-menu */
+  --color-gray-200: #DCDCDC;
+  --color-gray-250: #cccccc; /* --color-input-empty */
+  --color-gray-300: #C5C7C5;
+  --color-gray-350: #cfcfd1; /* --app-border-color */
+  --color-gray-400: #BDBDBD;
+  --color-gray-450: #9f9f9f; /* --text-top-menu */
+  --color-gray-500: #8E8E8E;
+  --color-gray-600: #7B7B7B;
+  --color-gray-700: #6D6D6D;
+  --color-gray-800: #666666;
+  --color-gray-850: #555555;
+  --color-gray-900: #484848;
+  --color-gray-950: #333333;
+
+  /* Colores Primarios */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+
+  /* Colores de Error */
+  --color-error: #dc2626;
+
+  /* Slate (Gris Azulado) */
+  --color-slate-200: #D1D5DB;
+  --color-slate-500: #6B7280;
+  --color-slate-700: #374151;
+  --color-slate-800: #3F4142;
+  --color-slate-850: #3d3c3c; /* --color-active-tab */
+  --color-slate-900: #193347;
+  --color-slate-925: #2E3336; /* --active-bg */
+  --color-slate-950: #262626; /* --color-inactive-tab */
+  --color-slate-975: #0f253a; /* --new-bg-tab */
+  --color-slate-990: #2a2a2a; /* --border-quote-form */
+
+  /* Azules */
+  --color-blue-50: #EFF6FF;
+  --color-blue-100: #D7E9FF;
+  --color-blue-500: #2563EB;
+  --color-blue-600: #0059CD; /* --borde-input-ctive */
+  --color-blue-750: #3A70BF; 
+  --color-blue-750-15: rgba(58, 112, 191, 0.15); /* --color-dropdown-menu box-shadow*/
+  --color-blue-800: #1E40AF;
+  --color-blue-900: #1E3A8A;
+  --color-blue-950: #0B99FF; /* --camtom-35 */
+
+  
+  /* Verdes */
+  --color-green-50: #CDEFD0;
+  --color-green-100: #DBFFD2;
+  --color-green-200: #B5FFB8;
+  --color-green-400: #7CE27A; /* --colro */
+  --color-green-700: #298000; /* --color-text-button */
+  --color-green-800: #189000;
+  --color-green-900: #1B4719;
+  --color-green-950: #026206;
+  --color-lime-100: #F9FACD;
+  --color-lime-700: #74741F;
+  --color-light-green-100: #DBFFD2;
+  --color-light-green-700: #189000;
+  --color-bright-green-100: #B5FFB8;
+  --color-bright-green-700: #026206;
+  --color-bright-green-500: #46FFCE;
+  --color-bright-green-600: #54f5f8;
+
+  /* Púrpuras / Violetas */
+  --color-purple-50: #F5F3FF;
+  --color-magenta-200: #F0E4FC;
+  --color-purple-100: #fa2cfd;
+  --color-purple-500: #8a2be2;
+  --color-purple-550: #AE35FF; /* --linear-1 */
+  --color-purple-600: #7C23CC;
+  --color-purple-800: #581C87;
+  --color-purple-900: #430E78;
+  --color-purple-100: #EDDCFE;
+  --color-magenta-100: #FFCCFE;
+
+  /* Rojos / Rosados */
+  --color-pink-100: #FFC4C4;
+  --color-pink-200: #FFCCFE;
+  --color-magenta-600: #B632AE;
+  --color-red-800: #8F1919;
+  --color-red-100: #FFC4C4;
+
+  /* Amarillos / Marrones */
+  --color-yellow-100: #F9FACD;
+  --color-yellow-200: #E2DE7A; /* --fill-pendiente */
+  --color-olive-800: #74741F;
+  --color-orange-800: #A45C09;
+  --color-gold-500: #CCB229;
+  --color-status-pending: #806B00; /* --pendiente */
+  --color-orange-100: #FFD5AE;
+  --color-orange-700: #A45C09;
+
+  /* Cian */
+  --color-cyan-500: #00B6ED; /* --linear-2 */
+
+  /* Colores de Marca */
+  --color-brand-700: #004a7c; /* --camtom */
+  --color-brand-400: #4897cc; /* --camtom-35 */
+  
+  /* Nombres funcionales genéricos */
+  --color-text-primary: #222222; /* --text */
+
+}
