@@ -120,7 +120,7 @@ const RightPanelContent = () => (
     
     <div style={{ marginTop: 'var(--spacing-4)' }}>
       <Banner 
-        variant="success" 
+        variant="light" 
         title="Lorem ipsum"
         actions={
           <span style={{ 
@@ -144,7 +144,7 @@ const RightPanelContent = () => (
 
     <div style={{ marginTop: 'var(--spacing-4)' }}>
       <Banner 
-        variant="neutral" 
+        variant="dark" 
         title="Lorem ipsum"
         actions={
           <Button variant="icon" aria-label="Copiar código" style={{ fontSize: 'var(--text-sm)' }}>

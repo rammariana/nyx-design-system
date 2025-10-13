@@ -154,33 +154,27 @@ export const Info: Story = {
   },
 };
 
-export const Success: Story = {
+export const Light: Story = {
   args: {
-    variant: 'success',
-    children: '¡Operación completada exitosamente!',
+    variant: 'light',
+    children: 'Esta es una información con variante light.',
   },
 };
 
-export const Warning: Story = {
+export const Recommendation: Story = {
   args: {
-    variant: 'warning',
-    children: 'Ten cuidado con esta acción.',
+    variant: 'recommendation',
+    children: 'Te recomendamos esta acción.',
   },
 };
 
-export const Error: Story = {
+export const Subtle: Story = {
   args: {
-    variant: 'error',
-    children: 'Ha ocurrido un error. Por favor, inténtalo de nuevo.',
+    variant: 'subtle',
+    children: 'Esta es una información sutil.',
   },
 };
 
-export const Neutral: Story = {
-  args: {
-    variant: 'neutral',
-    children: 'Este es un mensaje neutral.',
-  },
-};
 
 // Layout complejo con título
 export const WithTitle: Story = {
@@ -194,7 +188,7 @@ export const WithTitle: Story = {
 // Con icono (layout simple)
 export const WithIcon: Story = {
   args: {
-    variant: 'warning',
+    variant: 'recommendation',
     icon: '⚠️',
     children: 'Este banner incluye un icono para mayor visibilidad.',
   },
@@ -203,7 +197,7 @@ export const WithIcon: Story = {
 // Layout complejo con título e icono
 export const WithTitleAndIcon: Story = {
   args: {
-    variant: 'success',
+    variant: 'light',
     title: '¡Éxito!',
     icon: '✅',
     children: 'La operación se completó correctamente.',
@@ -255,7 +249,7 @@ export const Dismissible: Story = {
 // Banner no descartable
 export const NotDismissible: Story = {
   args: {
-    variant: 'error',
+    variant: 'subtle',
     title: 'Error Crítico',
     icon: '🚨',
     children: 'Este banner no puede ser cerrado y requiere atención inmediata.',
@@ -275,7 +269,7 @@ export const NotFullWidth: Story = {
 // Sin borde
 export const WithoutBorder: Story = {
   args: {
-    variant: 'neutral',
+    variant: 'dark',
     title: 'Sin Borde',
     children: 'Este banner no tiene borde visible.',
     withBorder: false,
@@ -314,16 +308,16 @@ export const AllVariants: Story = {
       <Banner variant="info" icon="ℹ️" title="Información">
         Este es un banner de información con layout complejo.
       </Banner>
-      <Banner variant="success" icon="✅" title="Éxito">
+      <Banner variant="light" icon="✅" title="Éxito">
         Operación completada exitosamente.
       </Banner>
-      <Banner variant="warning" icon="⚠️" title="Advertencia">
+      <Banner variant="recommendation" icon="⚠️" title="Advertencia">
         Ten cuidado con esta acción.
       </Banner>
-      <Banner variant="error" icon="🚨" title="Error">
+      <Banner variant="subtle" icon="🚨" title="Error">
         Ha ocurrido un error en el sistema.
       </Banner>
-      <Banner variant="neutral" icon="📄" title="Neutral">
+      <Banner variant="dark" icon="📄" title="Neutral">
         Este es un mensaje neutral.
       </Banner>
     </div>
@@ -350,7 +344,7 @@ export const LayoutComparison: Story = {
       <Banner variant="info" icon="ℹ️">
         Layout simple: solo mensaje e icono.
       </Banner>
-      <Banner variant="success" title="Layout Complejo" icon="✅">
+      <Banner variant="light" title="Layout Complejo" icon="✅">
         Layout complejo: título, icono y mensaje estructurados.
       </Banner>
     </div>
@@ -370,7 +364,7 @@ export const InteractiveExample: Story = {
   render: () => {
     const [banners, setBanners] = useState<Array<{
       id: number;
-      variant: 'info' | 'success' | 'warning' | 'error' | 'neutral';
+      variant: 'dark' | 'light' | 'info' | 'recommendation' | 'subtle';
       title: string;
       message: string;
       icon: string;
@@ -384,14 +378,14 @@ export const InteractiveExample: Story = {
       },
       { 
         id: 2, 
-        variant: 'success', 
+        variant: 'light', 
         title: 'Guardado exitoso', 
         message: 'Los cambios se han guardado correctamente.',
         icon: ''
       },
       { 
         id: 3, 
-        variant: 'warning', 
+        variant: 'recommendation', 
         title: 'Mantenimiento programado', 
         message: 'El sistema estará en mantenimiento mañana de 2:00 a 4:00 AM.',
         icon: '🔧'
@@ -403,9 +397,9 @@ export const InteractiveExample: Story = {
     };
     
     const addBanner = () => {
-      const variants = ['info', 'success', 'warning', 'error', 'neutral'] as const;
-      const icons = ['ℹ️', '✅', '⚠️', '🚨', '📄'];
-      const titles = ['Nueva notificación', 'Operación exitosa', 'Advertencia', 'Error crítico', 'Información'];
+      const variants = ['info', 'light', 'recommendation', 'subtle', 'dark'] as const;
+      const icons = ['ℹ️', '💡', '⭐', '📝', '📄'];
+      const titles = ['Nueva notificación', 'Operación exitosa', 'Recomendación', 'Información sutil', 'Información general'];
       const messages = [
         'Este es un banner agregado dinámicamente.',
         'La operación se completó sin problemas.',
@@ -474,7 +468,7 @@ export const RealWorldExamples: Story = {
       width: '100%' 
     }}>
       <Banner 
-        variant="success" 
+        variant="light" 
         title="Sesión iniciada" 
         icon="👋"
         onClose={() => alert('Banner cerrado')}
@@ -483,7 +477,7 @@ export const RealWorldExamples: Story = {
       </Banner>
       
       <Banner 
-        variant="warning" 
+        variant="recommendation" 
         title="Conexión inestable" 
         icon="📶"
         actions={
@@ -497,7 +491,7 @@ export const RealWorldExamples: Story = {
       </Banner>
       
       <Banner 
-        variant="error" 
+        variant="subtle" 
         title="Error de validación" 
         icon="❌"
         dismissible={false}
@@ -550,7 +544,7 @@ export const AccessibilityExample: Story = {
       </Banner>
       
       <Banner 
-        variant="success" 
+        variant="light" 
         icon="✅"
         onClose={() => alert('Banner simple cerrado')}
       >

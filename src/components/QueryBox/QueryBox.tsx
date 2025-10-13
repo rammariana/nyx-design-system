@@ -211,10 +211,9 @@ export const QueryBox = forwardRef<HTMLFormElement, QueryBoxProps>(
 
           <div className={styles.submitSection}>
             {showModelToggle && onToggleModel && (
-              <div className={styles.modelToggle}>
+              <div className={styles.modelToggle} onClick={handleToggleModel}>
                 <span 
                   className={`${styles.modelLabel} ${model === 'fast' ? styles.active : ''}`}
-                  onClick={handleToggleModel}
                 >
                   Fast
                 </span>
@@ -225,32 +224,24 @@ export const QueryBox = forwardRef<HTMLFormElement, QueryBoxProps>(
                 </div>
                 <span 
                   className={`${styles.modelLabel} ${model === 'pro' ? styles.active : ''}`}
-                  onClick={handleToggleModel}
                 >
                   Pro
                 </span>
               </div>
             )}
             
-            <Button
+            <button
               type="submit"
               className={`${styles.submitButton} ${isLoading ? styles.cancelButton : styles[model]}`}
               disabled={disabled || (!isLoading && !value.trim() && attachedFiles.length === 0)}
-              variant={isLoading ? "danger" : "primary"}
               data-testid="submit-button"
             >
               {isLoading ? (
-                <>
-                  <i className="bi bi-stop-circle" data-testid="cancel-icon" />
-                  {cancelButtonText && <span>{cancelButtonText}</span>}
-                </>
+                <i className="bi bi-stop-circle" data-testid="cancel-icon" />
               ) : (
-                <>
-                  <i className="bi bi-arrow-up" data-testid="send-icon" />
-                  {submitButtonText && <span>{submitButtonText}</span>}
-                </>
+                <i className="bi bi-arrow-up" data-testid="send-icon" />
               )}
-            </Button>
+            </button>
           </div>
         </div>
       </form>

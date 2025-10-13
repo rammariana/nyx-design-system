@@ -1,7 +1,7 @@
 import React, { ReactNode, forwardRef } from 'react';
 import styles from './Banner.module.css';
 
-export type BannerVariant = 'info' | 'success' | 'warning' | 'error' | 'neutral';
+export type BannerVariant = 'dark' | 'light' | 'info' | 'recommendation' | 'subtle';
 
 export interface BannerProps {
   children: ReactNode;
@@ -20,7 +20,7 @@ export interface BannerProps {
 export const Banner = forwardRef<HTMLDivElement, BannerProps>(
   ({
     children,
-    variant = 'info',
+    variant = 'dark',
     className = '',
     title,
     icon,
@@ -82,15 +82,7 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(
                     aria-label="Cerrar banner"
                     type="button"
                   >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path 
-                        d="M18 6L6 18M6 6L18 18" 
-                        stroke="currentColor" 
-                        strokeWidth="2" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <i className="bi bi-x"></i>
                   </button>
                 )}
               </div>
@@ -112,15 +104,7 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(
                 aria-label="Cerrar banner"
                 type="button"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path 
-                    d="M18 6L6 18M6 6L18 18" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <i className="bi bi-x"></i>
               </button>
             )}
           </>
