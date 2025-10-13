@@ -92,6 +92,22 @@ Componente Input para entrada de texto con múltiples variantes, tamaños y esta
         defaultValue: { summary: 'undefined' },
       },
     },
+    showPasswordToggle: {
+      control: { type: 'boolean' },
+      description: 'Activa el toggle para mostrar/ocultar contraseña',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    onPasswordToggle: {
+      control: false,
+      description: 'Callback que se ejecuta cuando cambia la visibilidad de la contraseña',
+      table: {
+        type: { summary: '(show: boolean) => void' },
+        defaultValue: { summary: 'undefined' },
+      },
+    },
     // Props nativas de HTML input más comunes
     placeholder: {
       control: { type: 'text' },
@@ -309,11 +325,62 @@ export const PasswordInput: Story = {
     type: 'password',
     placeholder: 'Contraseña',
     helperText: 'Mínimo 8 caracteres',
+    showPasswordToggle: true,
   },
   parameters: {
     docs: {
       description: {
-        story: 'Input configurado para contraseñas.',
+        story: 'Input configurado para contraseñas con toggle de visibilidad.',
+      },
+    },
+  },
+};
+
+// Toggle de contraseña
+export const PasswordToggle: Story = {
+  args: {
+    type: 'password',
+    placeholder: 'Contraseña con toggle',
+    showPasswordToggle: true,
+    helperText: 'Haz clic en el icono del ojo para mostrar/ocultar',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Input de contraseña con funcionalidad de toggle para mostrar/ocultar el contenido.',
+      },
+    },
+  },
+};
+
+// Comparación de contraseñas
+export const PasswordComparison: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)', width: '300px' }}>
+      <div>
+        <h4 style={{ marginBottom: 'var(--spacing-2)', color: 'var(--color-gray-700)' }}>Sin Toggle</h4>
+        <Input 
+          type="password" 
+          placeholder="Contraseña sin toggle"
+          helperText="Contraseña oculta permanentemente"
+        />
+      </div>
+      <div>
+        <h4 style={{ marginBottom: 'var(--spacing-2)', color: 'var(--color-gray-700)' }}>Con Toggle</h4>
+        <Input 
+          type="password" 
+          placeholder="Contraseña con toggle"
+          showPasswordToggle={true}
+          helperText="Haz clic en el ojo para mostrar/ocultar"
+        />
+      </div>
+    </div>
+  ),
+  parameters: {
+    layout: 'padded',
+    docs: {
+      description: {
+        story: 'Comparación entre input de contraseña sin toggle y con toggle de visibilidad.',
       },
     },
   },
