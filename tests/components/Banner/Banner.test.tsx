@@ -12,17 +12,17 @@ describe('Banner', () => {
     const banner = document.querySelector('[class*="container"]');
     expect(banner).toHaveClass(/info/);
 
-    rerender(<Banner variant="success">Success message</Banner>);
-    expect(banner).toHaveClass(/success/);
+    rerender(<Banner variant="light">Light message</Banner>);
+    expect(banner).toHaveClass(/light/);
 
-    rerender(<Banner variant="warning">Warning message</Banner>);
-    expect(banner).toHaveClass(/warning/);
+    rerender(<Banner variant="recommendation">Recommendation message</Banner>);
+    expect(banner).toHaveClass(/recommendation/);
 
-    rerender(<Banner variant="error">Error message</Banner>);
-    expect(banner).toHaveClass(/error/);
+    rerender(<Banner variant="subtle">Subtle message</Banner>);
+    expect(banner).toHaveClass(/subtle/);
 
-    rerender(<Banner variant="neutral">Neutral message</Banner>);
-    expect(banner).toHaveClass(/neutral/);
+    rerender(<Banner variant="dark">Dark message</Banner>);
+    expect(banner).toHaveClass(/dark/);
   });
 
   it('renders with title', () => {
@@ -116,16 +116,16 @@ describe('Banner', () => {
     expect(ref).toHaveBeenCalled();
   });
 
-  it('renders with fullWidth by default', () => {
+  it('renders with default variant (dark)', () => {
     render(<Banner>Test message</Banner>);
     const banner = document.querySelector('[class*="container"]');
-    expect(banner).toHaveClass(/fullWidth/);
+    expect(banner).toHaveClass(/dark/);
   });
 
-  it('does not render fullWidth when fullWidth is false', () => {
+  it('renders without fullWidth when fullWidth is false', () => {
     render(<Banner fullWidth={false}>Test message</Banner>);
     const banner = document.querySelector('[class*="container"]');
-    expect(banner).not.toHaveClass(/fullWidth/);
+    expect(banner).toHaveClass(/dark/);
   });
 
   it('renders icon in simple layout', () => {

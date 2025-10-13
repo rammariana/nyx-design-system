@@ -254,16 +254,16 @@ describe('QueryBox', () => {
     expect(screen.getByTestId('custom-querybox')).toBeInTheDocument();
   });
 
-  it('renders submit button text when provided', () => {
-    render(<QueryBox {...defaultProps} submitButtonText="Send Query" />);
+  it('renders submit button with icon when not loading', () => {
+    render(<QueryBox {...defaultProps} />);
     
-    expect(screen.getByText('Send Query')).toBeInTheDocument();
+    expect(screen.getByTestId('send-icon')).toBeInTheDocument();
   });
 
-  it('renders cancel button text when loading', () => {
-    render(<QueryBox {...defaultProps} isLoading cancelButtonText="Cancel" />);
+  it('renders cancel button with icon when loading', () => {
+    render(<QueryBox {...defaultProps} isLoading />);
     
-    expect(screen.getByText('Cancel')).toBeInTheDocument();
+    expect(screen.getByTestId('cancel-icon')).toBeInTheDocument();
   });
 
   it('hides attachments when showAttachments is false', () => {
