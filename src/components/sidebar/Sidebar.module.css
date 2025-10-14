@@ -81,10 +81,11 @@
   }
   
   .logoSidebarUser {
-    width: 100%;
+    max-width: 200px;  
+    height: auto;  
     margin: 0 auto;
     display: block;
-    max-height: 40px;
+    object-fit: contain;
   }
   
   .logo {
