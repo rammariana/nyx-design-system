@@ -10,6 +10,11 @@ export interface SidebarMenuItem {
     color: string;
     backgroundColor: string;
   };
+  tag?: {  
+    text: string;
+    backgroundColor?: string;  
+    textColor?: string;        
+  };
   isRestricted?: boolean;
   restrictionTooltip?: string;
   isPinnable?: boolean; 

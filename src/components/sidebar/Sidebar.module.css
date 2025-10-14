@@ -481,3 +481,21 @@
 .pinToggle:hover {
   color: var(--color-primary-700);
 }
+
+/* Tag personalizable */
+.customTag {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+/* Para sidebar colapsado, ocultar tags */
+.sidebarClose .customTag {
+  display: none;
+}

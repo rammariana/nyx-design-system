@@ -202,6 +202,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </span>
           )}
         </p>
+        {item.tag && openClose && (
+          <span 
+            className={styles.customTag}
+            style={{
+              backgroundColor: item.tag.backgroundColor || '#dcfce7', // light green default
+              color: item.tag.textColor || '#166534', // dark green default
+            }}
+          >
+            {item.tag.text}
+          </span>
+        )}
         <PinToggle itemId={item.id} />
       </div>
     );
