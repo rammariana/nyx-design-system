@@ -439,3 +439,45 @@
   vertical-align: baseline;
   border-radius: 0.25rem;
 }
+
+/* Encabezados de sección */
+.sectionHeader {
+  padding: 1rem 1rem 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+  letter-spacing: 0.05em;
+}
+
+/* Mensaje de favoritos vacíos */
+.favoritesEmpty {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+  font-style: italic;
+  text-align: center;
+}
+
+/* Toggle de pin */
+.pinToggle {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  color: var(--color-gray-400);
+  font-size: 0.875rem;
+  padding: 0.25rem;
+}
+
+.menuItem:hover .pinToggle {
+  opacity: 1;
+}
+
+.pinToggle.pinVisible {
+  opacity: 1;
+  color: var(--color-primary-600);
+}
+
+.pinToggle:hover {
+  color: var(--color-primary-700);
+}

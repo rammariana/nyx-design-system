@@ -12,6 +12,7 @@ export interface SidebarMenuItem {
   };
   isRestricted?: boolean;
   restrictionTooltip?: string;
+  isPinnable?: boolean; 
 }
 
 export interface SidebarProps {
@@ -43,4 +44,13 @@ export interface SidebarProps {
   
   // Estilos adicionales
   className?: string;
+  
+  // Nueva funcionalidad de favoritos (OPCIONAL)
+  enableFavorites?: boolean;  // ← Activa la funcionalidad de favoritos
+  maxFavorites?: number;      // ← Máximo de favoritos (default: 3)
+  favoritesStorageKey?: string; // ← Key de localStorage (default: 'sidebar_favorites_v1')
+  favoritesSectionLabel?: string; // ← Label de la sección (default: "Favoritos")
+  allItemsSectionLabel?: string;  // ← Label de "Todas las secciones"
+  emptyFavoritesMessage?: string; // ← Mensaje cuando no hay favoritos
+  onFavoriteToggle?: (itemId: string, isFavorite: boolean) => void; // ← Callback opcional
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Sidebar.module.css';
 import { SidebarProps, SidebarMenuItem } from './types';
 
@@ -33,6 +33,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
   showPoweredBy = false,
   poweredByLogo,
   className = '',
+  enableFavorites = false,
+  maxFavorites = 3,
+  favoritesStorageKey = 'sidebar_favorites_v1',
+  favoritesSectionLabel = 'Páginas destacadas',
+  allItemsSectionLabel = 'Secciones de la Plataforma',
+  emptyFavoritesMessage = 'Destaca una pestaña para verla aquí',
+  onFavoriteToggle,
 }) => {
   const [internalIsOpen, setInternalIsOpen] = useState(true);
   
@@ -83,6 +90,79 @@ export const Sidebar: React.FC<SidebarProps> = ({
     return `${styles.sidebarList} d-flex flex-row ${activeClass} ${layoutClasses}`;
   };
 
+  // Estado de favoritos (solo si está habilitado)
+  const [favorites, setFavorites] = useState<string[]>(() => {
+    if (!enableFavorites) return [];
+    try {
+      const raw = localStorage.getItem(favoritesStorageKey);
+      const arr = JSON.parse(raw || '[]');
+      return Array.isArray(arr) ? arr.slice(0, maxFavorites) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  // Persistir favoritos en localStorage
+  useEffect(() => {
+    if (!enableFavorites) return;
+    try {
+      localStorage.setItem(favoritesStorageKey, JSON.stringify(favorites.slice(0, maxFavorites)));
+    } catch {}
+  }, [favorites, enableFavorites, favoritesStorageKey, maxFavorites]);
+
+  const toggleFavorite = (id: string) => {
+    if (!enableFavorites) return;
+    
+    setFavorites(prev => {
+      const isFav = prev.includes(id);
+      const newFavorites = isFav
+        ? prev.filter(x => x !== id)
+        : (prev.length >= maxFavorites ? prev : [...prev, id]);
+      
+      // Llamar callback si existe
+      if (onFavoriteToggle) {
+        onFavoriteToggle(id, !isFav);
+      }
+      
+      return newFavorites;
+    });
+  };
+
+  const isFavorite = (id: string) => favorites.includes(id);
+
+  // Separar items en favoritos y no favoritos
+  const favoriteItems = enableFavorites 
+    ? menuItems.filter(item => favorites.includes(item.id))
+    : [];
+  
+  const regularItems = enableFavorites
+    ? menuItems.filter(item => !favorites.includes(item.id))
+    : menuItems;
+
+  // Componente de toggle de pin
+  const PinToggle = ({ itemId }: { itemId: string }) => {
+    if (!enableFavorites) return null;
+    
+    const item = menuItems.find(m => m.id === itemId);
+    if (!item?.isPinnable) return null;
+
+    return (
+      <span
+        className={`ms-auto ${styles.pinToggle} ${isFavorite(itemId) ? styles.pinVisible : ''}`}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleFavorite(itemId);
+        }}
+        title={isFavorite(itemId) ? 'Quitar de fijados' : 'Fijar en destacados'}
+        role="button"
+        aria-label="toggle-pin"
+      >
+        <i className={`bi ${isFavorite(itemId) ? 'bi-pin-angle-fill' : 'bi-pin-angle'}`}></i>
+      </span>
+    );
+  };
+
   const renderMenuItem = (item: SidebarMenuItem) => {
     const isRestricted = item.isRestricted && !hasAccessToPedimento;
     
@@ -122,6 +202,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </span>
           )}
         </p>
+        <PinToggle itemId={item.id} />
       </div>
     );
 
@@ -132,10 +213,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
           href={item.href}
           className={styles.menuItem}
           onClick={(e) => {
-            if (item.onClick) {
-              e.preventDefault();
-              handleItemClick(item);
-            }
+            e.preventDefault();
+            handleItemClick(item);
           }}
         >
           {menuContent}
@@ -217,7 +296,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
         {/* Contenedor del menú - con scroll */}
         <div className={`${styles.sidebarMenuContainer} w-100`}>
-          {menuItems.map(renderMenuItem)}
+          {/* Sección de Favoritos */}
+          {enableFavorites && openClose && (
+            <>
+              <div className={styles.sectionHeader}>
+                {favoritesSectionLabel}
+              </div>
+              {favoriteItems.length === 0 && (
+                <div className={styles.favoritesEmpty}>
+                  {emptyFavoritesMessage}
+                </div>
+              )}
+              {favoriteItems.map(item => renderMenuItem(item))}
+              
+              {/* Separador */}
+              <div className={styles.sectionHeader}>
+                {allItemsSectionLabel}
+              </div>
+            </>
+          )}
+
+          {/* Items regulares */}
+          {regularItems.map(item => renderMenuItem(item))}
         </div>
 
         {/* Footer personalizable */}
