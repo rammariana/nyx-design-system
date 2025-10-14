@@ -141,7 +141,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   // Componente de toggle de pin
   const PinToggle = ({ itemId }: { itemId: string }) => {
-    if (!enableFavorites) return null;
+    if (!enableFavorites || !openClose) return null;
     
     const item = menuItems.find(m => m.id === itemId);
     if (!item?.isPinnable) return null;
@@ -214,7 +214,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             {item.tag.text}
           </span>
         )}
-        <PinToggle itemId={item.id} />
+        {openClose && <PinToggle itemId={item.id} />}
       </div>
     );
 
