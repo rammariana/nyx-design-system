@@ -503,5 +503,15 @@
 
 /* Para sidebar colapsado, ocultar tags */
 .sidebarClose .customTag {
-  display: none;
+  display: none !important;
+}
+
+/* Para sidebar colapsado, ocultar pins */
+.sidebarClose .pinToggle {
+  display: none !important;
+}
+
+/* Asegurar que los pins también se oculten en sidebar colapsado */
+.sidebarClose .menuItem .pinToggle {
+  display: none !important;
 }
