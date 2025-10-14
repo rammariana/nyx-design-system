@@ -10,6 +10,9 @@ export * from './types';
 export { Button } from './components/Button';
 export type { ButtonProps } from './components/Button';
 
+export { SlideButton } from './components/Button/SlideButton';
+export type { SlideButtonProps } from './components/Button/SlideButton';
+
 export { Input, Textarea } from './components/Input';
 export type { InputProps, TextareaProps } from './components/Input';
 
