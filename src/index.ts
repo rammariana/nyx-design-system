@@ -1,7 +1,7 @@
 // Styles
 import './styles/reset.css';
 import './styles/tokens.css';
-import 'bootstrap-icons/font/bootstrap-icons.css'; // Agrega esta línea
+import 'bootstrap-icons/font/bootstrap-icons.css'; 
 
 // Types
 export * from './types';

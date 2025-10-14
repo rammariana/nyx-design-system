@@ -28,6 +28,7 @@ export default {
       modules: true,
       extract: 'index.css',
       minimize: true,
+      inject: false,
       include: ['src/**/*.css'],
       exclude: ['node_modules/**']
     }),
