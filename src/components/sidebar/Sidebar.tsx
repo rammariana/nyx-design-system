@@ -132,8 +132,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
           href={item.href}
           className={styles.menuItem}
           onClick={(e) => {
-            e.preventDefault();
-            handleItemClick(item);
+            if (item.onClick) {
+              e.preventDefault();
+              handleItemClick(item);
+            }
           }}
         >
           {menuContent}
