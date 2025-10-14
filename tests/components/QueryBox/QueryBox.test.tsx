@@ -187,8 +187,12 @@ describe('QueryBox', () => {
     
     render(<QueryBox {...defaultProps} onToggleModel={onToggleModel} />);
     
+    // Verificar que existe el toggle (por testid en lugar de texto)
+    expect(screen.getByTestId('slide-button-toggle')).toBeInTheDocument();
+    
+    // Verificar que se muestra el texto inicial (Fast por defecto)
     expect(screen.getByText('Fast')).toBeInTheDocument();
-    expect(screen.getByText('Pro')).toBeInTheDocument();
+    
   });
 
   it('handles model toggle', () => {
@@ -196,7 +200,7 @@ describe('QueryBox', () => {
     
     render(<QueryBox {...defaultProps} onToggleModel={onToggleModel} />);
     
-    fireEvent.click(screen.getByText('Pro'));
+    fireEvent.click(screen.getByTestId('slide-button-toggle'));
     expect(onToggleModel).toHaveBeenCalledTimes(1);
   });
 
@@ -205,7 +209,8 @@ describe('QueryBox', () => {
     
     render(<QueryBox {...defaultProps} onToggleModel={onToggleModel} isLoading />);
     
-    fireEvent.click(screen.getByText('Pro'));
+    // Hacer click en el toggle (no en el texto)
+    fireEvent.click(screen.getByTestId('slide-button-toggle'));
     expect(onToggleModel).not.toHaveBeenCalled();
   });
 
