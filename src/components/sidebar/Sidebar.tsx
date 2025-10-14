@@ -213,8 +213,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
           href={item.href}
           className={styles.menuItem}
           onClick={(e) => {
-            e.preventDefault();
-            handleItemClick(item);
+            if (item.onClick) {
+              e.preventDefault();
+              handleItemClick(item);
+            }
           }}
         >
           {menuContent}
@@ -296,6 +298,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
         {/* Contenedor del menú - con scroll */}
         <div className={`${styles.sidebarMenuContainer} w-100`}>
+          {/* Dashboard siempre primero */}
+          {(() => {
+            const dashboardItem = menuItems.find(item => item.id === 'home');
+            return dashboardItem ? renderMenuItem(dashboardItem) : null;
+          })()}
+
           {/* Sección de Favoritos */}
           {enableFavorites && openClose && (
             <>
@@ -316,8 +324,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </>
           )}
 
-          {/* Items regulares */}
-          {regularItems.map(item => renderMenuItem(item))}
+          {/* Items regulares (excluyendo Dashboard) */}
+          {regularItems.filter(item => item.id !== 'home').map(item => renderMenuItem(item))}
         </div>
 
         {/* Footer personalizable */}
