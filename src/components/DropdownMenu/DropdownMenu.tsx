@@ -60,7 +60,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   return (
     <div ref={containerRef} className={styles.container}>
       {triggerWithClick}
-      {isOpen && <div className={menuClassName} style={menuStyle}>{children}Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</div>}
+      {isOpen && <div className={menuClassName} style={menuStyle}>{children}</div>}
     </div>
   );
 };

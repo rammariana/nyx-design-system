@@ -2,6 +2,7 @@ import React, { ChangeEvent, FormEvent, ReactNode, forwardRef } from 'react';
 import styles from './QueryBox.module.css';
 import { Button } from '../Button';
 import { Loader } from '../Loader';
+import { SlideButton } from '../Button/SlideButton';
 
 export type QueryBoxModel = 'pro' | 'fast';
 export type QueryBoxSize = 'small' | 'medium' | 'large';
@@ -211,23 +212,15 @@ export const QueryBox = forwardRef<HTMLFormElement, QueryBoxProps>(
 
           <div className={styles.submitSection}>
             {showModelToggle && onToggleModel && (
-              <div className={styles.modelToggle} onClick={handleToggleModel}>
-                <span 
-                  className={`${styles.modelLabel} ${model === 'fast' ? styles.active : ''}`}
-                >
-                  Fast
-                </span>
-                <div className={styles.toggleSwitch}>
-                  <div 
-                    className={`${styles.toggleSlider} ${model === 'pro' ? styles.proActive : ''}`}
-                  />
-                </div>
-                <span 
-                  className={`${styles.modelLabel} ${model === 'pro' ? styles.active : ''}`}
-                >
-                  Pro
-                </span>
-              </div>
+              <SlideButton
+                activeState={model === 'pro'}
+                onToggle={handleToggleModel}
+                leftLabel="Fast"
+                rightLabel="Pro"
+                variant="compact"
+                showCircle={false}
+                showText={true}
+              />
             )}
             
             <button

@@ -1,3 +1,5 @@
+@import '../../styles/tokens.css';
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -70,7 +72,7 @@
 }
 
 .dark {
-  background-color: var(--color-gray-900);
+  background-color: var(--color-gray-600);
   color: var(--color-white);
   border-radius: var(--radius-full);
   font-weight: var(--font-bold);
@@ -239,3 +241,417 @@
   background-color: #fee2e2;
   border-color: #fca5a5;
 }
+
+/* ========== SLIDEBUTTON COMPONENT ========== */
+
+/* Contenedor base del slide button */
+.slideContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 36px;
+  background-color: #f0f0f0;
+  border-radius: 18px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 20px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Slider (elemento que se desliza) */
+.slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(50% - 2px);
+  height: calc(100% - 4px);
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease-in-out;
+  z-index: 1;
+}
+
+.slideLeft {
+  transform: translateX(0%);
+}
+
+.slideRight {
+  transform: translateX(100%);
+}
+
+/* Contenedor de etiquetas */
+.labelsContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.slideContainer .activeLabel,
+.slideContainer .inactiveLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.25s ease-in-out;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.slideContainer .activeLabel {
+  color: var(--color-gray-850);
+}
+
+.slideContainer .inactiveLabel {
+  color: #888;
+}
+
+/* Estilos para la variante compacta */
+.compactToggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.compactToggleText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6B7280;
+}
+
+.compactToggleTextActive {
+  font-weight: 600;
+  background: linear-gradient(to right, var(--color-purple-550) 0%, var(--color-bright-green-600) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.compactToggleTextInactive {
+  /* color: #6B7280; */
+}
+
+.compactToggleSwitch {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.compactToggleSwitchActive {
+  background: linear-gradient(to right, var(--color-purple-550) 0%, var(--color-bright-green-600) 100%);
+}
+
+.compactToggleSwitchInactive {
+  background-color: #E5E7EB;
+}
+
+.compactToggleThumb {
+  position: absolute;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  transition: left 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.compactToggleThumbActive {
+  left: 26px;
+}
+
+.compactToggleThumbInactive {
+  left: 2px;
+}
+
+.compactToggleCircleActive {
+  background: linear-gradient(to right, var(--color-purple-550) 0%, var(--color-bright-green-600) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-size: 1rem;
+}
+
+.compactToggleCircleInactive {
+  color: #6B7280;
+  font-size: 1rem;
+}
+
+/* Variante Outline */
+.slideContainerOutline {
+  background-color: transparent;
+  border: 2px solid #d1d5db;
+}
+
+.slideContainerOutline .slider {
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+}
+
+.slideContainerOutline .activeLabel {
+  color: #111827;
+  font-weight: 600;
+}
+
+.slideContainerOutline .inactiveLabel {
+  color: #6b7280;
+}
+
+/* Hover states para las variantes */
+.slideContainerDark:hover {
+  border-color: #4b5563;
+}
+
+.slideContainerOutline:hover {
+  border-color: #9ca3af;
+}
+
+/* Variante Gradient */
+
+.slideContainerGradient {
+  background: linear-gradient(135deg, var(--color-purple-550) 0%, var(--color-bright-green-600) 100%);
+  border: none;
+}
+.slideContainerGradient .slider {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  background-clip: initial !important;
+  background-origin: initial !important;
+  background-size: initial !important;
+  background-position: initial !important;
+  background-repeat: initial !important;
+  color: var(--color-gray-850) !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.slideContainerGradient .activeLabel {
+  /* color: #ffffff; */
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.slideContainerGradient .inactiveLabel {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.slideContainerGradient:hover {
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* ========== VARIANTES DARK CORRECTAS ========== */
+
+/* Variante Dark - Fondo negro, botón blanco */
+.slideContainerDark {
+  background-color: #000000;
+  border-color: #333333;
+}
+
+.slideContainerDark .slider {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+.slideContainerDark .activeLabel {
+  color: #000000; /* Negro sobre blanco */
+}
+
+.slideContainerDark .inactiveLabel {
+  color: #888888; /* Gris sobre negro */
+}
+
+/* Variante Dark Inverse - Botón negro, fondo gris */
+.slideContainerDarkInverse {
+  background-color: #333333;
+  border-color: #555555;
+}
+
+.slideContainerDarkInverse .slider {
+  background-color: #000000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.slideContainerDarkInverse .activeLabel {
+  color: #ffffff; /* Blanco sobre negro */
+}
+
+.slideContainerDarkInverse .inactiveLabel {
+  color: #cccccc; /* Gris claro sobre gris */
+}
+
+/* ========== VARIANTES COMPACT DARK ========== */
+
+/* Compact Dark - Sin gradiente, colores sólidos */
+.compactToggleText--compactDark {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #cccccc;
+}
+
+.compactToggleTextActive--compactDark {
+  font-weight: 600;
+  color: #000000;
+}
+
+.compactToggleTextInactive--compactDark {
+  color: #888888;
+}
+
+.compactToggleSwitch--compactDark {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  background-color: #333333;
+}
+
+.compactToggleSwitchActive--compactDark {
+  background-color: #ffffff;
+}
+
+.compactToggleSwitchInactive--compactDark {
+  background-color: #333333;
+}
+
+.compactToggleThumb--compactDark {
+  position: absolute;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: left 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.compactToggleThumbActive--compactDark {
+  left: 26px;
+  background-color: #000000;
+}
+
+.compactToggleThumbInactive--compactDark {
+  left: 2px;
+  background-color: #ffffff;
+}
+
+/* Compact Dark Inverse - Botón negro, fondo gris */
+.compactToggleText--darkInverse {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #cccccc; /* Gris claro sobre fondo gris */
+}
+
+.compactToggleTextActive--darkInverse {
+  font-weight: 600;
+  color: #ffffff; /* ✅ CORREGIR: Blanco sobre switch negro */
+}
+
+.compactToggleTextInactive--darkInverse {
+  color: #888888; /* Gris sobre fondo gris */
+}
+
+.compactToggleSwitch--darkInverse {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  background-color: #666666; /* Switch gris */
+}
+
+.compactToggleSwitchActive--darkInverse {
+  background-color: #000000; /* Switch negro */
+}
+
+.compactToggleSwitchInactive--darkInverse {
+  background-color: #666666; /* Switch gris */
+}
+
+.compactToggleThumb--darkInverse {
+  position: absolute;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: left 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.compactToggleThumbActive--darkInverse {
+  left: 26px;
+  background-color: #ffffff; /* Thumb blanco sobre switch negro */
+}
+
+.compactToggleThumbInactive--darkInverse {
+  left: 2px;
+  background-color: #000000; /* Thumb negro sobre switch gris */
+}
+
+.compactToggleSwitchCustom {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.compactToggleSwitchCustom.compactToggleSwitchInactive {
+  background-color: #E5E7EB;
+}
+
+/* Clases específicas para compactCustom - SIN gradiente */
+.compactToggleSwitchCustomActive {
+  /* El color se aplicará via style inline */
+  background-color: inherit;
+}
+
+.compactToggleSwitchCustomInactive {
+  background-color: #E5E7EB;
+}
+
+.compactToggleTextCustomActive {
+  color: var(--color-gray-600); 
+}
+
+.compactToggleTextCustomInactive {
+  color: var(--color-gray-600);
+}
+
+.compactToggleCircleActive {
+  color: customColor;
+}
+
+.compactToggleCircleInactive {
+  color: var(--color-gray-600);
+}
+
+.compactToggleSwitch:hover {
+  background-color: inherit !important;
+}
+
+.compactToggleSwitchActive:hover {
+  background: linear-gradient(to right, var(--color-purple-550) 0%, var(--color-bright-green-600) 100%) !important;
+}
+
+.compactToggleSwitchInactive:hover {
+  background-color: #E5E7EB !important;
+}
+
