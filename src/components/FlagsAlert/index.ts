@@ -1,0 +1,1 @@
+export { FlagsAlert } from './FlagsAlert';

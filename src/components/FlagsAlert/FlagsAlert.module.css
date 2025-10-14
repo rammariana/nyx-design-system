@@ -1,0 +1,222 @@
+.flagsAlert {
+  margin-bottom: 1rem;
+}
+
+.alertContainer {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.alertHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+}
+
+.alertTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.alertIcon {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.titleText {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+}
+
+.expandButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: inherit;
+  transition: all 0.2s ease;
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.expandButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.expandButton:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.chevronIcon {
+  transition: transform 0.3s ease;
+  font-size: 0.75rem;
+}
+
+.buttonText {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.flagsDetails {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.flagsDetails.expanded {
+  max-height: 500px; /* Adjust based on expected content */
+  padding: 1.25rem;
+}
+
+.flagsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flagItem {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.flagItem:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.flagHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.flagBadge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.severityBadge {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.severity-high {
+  background-color: #dc3545;
+  color: white;
+}
+
+.severity-medium {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.severity-low {
+  background-color: #6c757d;
+  color: white;
+}
+
+.flagContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.flagName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.flagDescription {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .alertHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .alertTitle {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .expandButton {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .flagsDetails.expanded {
+    padding: 1rem;
+  }
+  
+  .flagItem {
+    padding: 0.75rem;
+  }
+}
+
+/* Animation for smooth expand/collapse */
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    max-height: 500px;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+  }
+}

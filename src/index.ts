@@ -10,6 +10,11 @@ export * from './types';
 export { Button } from './components/Button';
 export type { ButtonProps } from './components/Button';
 
+export { FlagsAlert } from './components/FlagsAlert';
+
+export { ImageLightbox } from './components/ImageLightbox';
+export { ImageUpload } from './components/ImageUpload';
+
 export { SlideButton } from './components/Button/SlideButton';
 export type { SlideButtonProps } from './components/Button/SlideButton';
 
