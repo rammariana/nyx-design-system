@@ -443,7 +443,7 @@
 /* Encabezados de sección */
 .sectionHeader {
   padding: 1rem 1rem 0.5rem 1rem;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--color-gray-500);
   letter-spacing: 0.05em;
