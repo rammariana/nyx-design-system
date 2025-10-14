@@ -10,10 +10,11 @@ export interface SidebarMenuItem {
     color: string;
     backgroundColor: string;
   };
-  tag?: {  
+  tag?: {
     text: string;
     backgroundColor?: string;  
-    textColor?: string;        
+    textColor?: string;
+    borderColor?: string;  
   };
   isRestricted?: boolean;
   restrictionTooltip?: string;

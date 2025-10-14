@@ -206,8 +206,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <span 
             className={styles.customTag}
             style={{
-              backgroundColor: item.tag.backgroundColor || '#dcfce7', // light green default
-              color: item.tag.textColor || '#166534', // dark green default
+              backgroundColor: item.tag.backgroundColor || '#d1fae5',
+              color: item.tag.textColor || '#065f46',
+              borderColor: item.tag.borderColor || '#a7f3d0',
             }}
           >
             {item.tag.text}
