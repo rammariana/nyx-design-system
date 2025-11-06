@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem; /* 12px */
+  width: 100%;
 }
 
 /* Icono (círculo con chevron) */
