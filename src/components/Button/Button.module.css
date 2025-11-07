@@ -242,7 +242,7 @@
   border-color: #fca5a5;
 }
 
-/* ========== SLIDEBUTTON COMPONENT ========== */
+/*  SLIDEBUTTON COMPONENT  */
 
 /* Contenedor base del slide button */
 .slideContainer {
@@ -494,7 +494,7 @@
   color: #cccccc; /* Gris claro sobre gris */
 }
 
-/* ========== VARIANTES COMPACT DARK ========== */
+/*  VARIANTES COMPACT DARK  */
 
 /* Compact Dark - Sin gradiente, colores sólidos */
 .compactToggleText--compactDark {

@@ -12,7 +12,7 @@
   transform: translateX(0);
 }
 
-/* ✅ Variante para lado izquierdo */
+/* Variante para lado izquierdo */
 .leftPanel {
   right: auto;
   left: 0;
