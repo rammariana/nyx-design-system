@@ -30,7 +30,7 @@ export const SlideButton: React.FC<SlideButtonProps> = ({
   showText = true,  
   customColor,
 }) => {
-  console.log('SlideButton - activeState:', activeState, 'leftLabel:', leftLabel, 'rightLabel:', rightLabel);
+  
   if (variant === 'compactCustom') {
     return (
       <div className={styles.compactToggleContainer}>
