@@ -58,6 +58,15 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       // Normalizar la posición (convertir "left top" a "left-top" para CSS)
       const normalized = pos.replace(/\s+/g, '-');
       
+      // DEBUG: Ver qué está pasando
+      console.log('[Tooltip Debug]', {
+        original: pos,
+        normalized,
+        availableStyles: Object.keys(styles),
+        normalizedClass: styles[normalized],
+        originalClass: styles[pos]
+      });
+      
       // Intentar obtener la clase normalizada primero
       const normalizedClass = styles[normalized];
       if (normalizedClass) {
