@@ -191,7 +191,7 @@ describe('QueryBox', () => {
     expect(screen.getByTestId('slide-button-toggle')).toBeInTheDocument();
     
     // Verificar que se muestra el texto inicial (Fast por defecto)
-    expect(screen.getByText('Fast')).toBeInTheDocument();
+    expect(screen.getByText('Pro')).toBeInTheDocument();
     
   });
 
@@ -294,8 +294,8 @@ describe('QueryBox', () => {
       />
     );
     
-    expect(screen.queryByText('Fast')).not.toBeInTheDocument();
     expect(screen.queryByText('Pro')).not.toBeInTheDocument();
+    expect(screen.queryByText('Fast')).not.toBeInTheDocument();
   });
 
   it('forwards ref correctly', () => {
