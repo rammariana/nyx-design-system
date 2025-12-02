@@ -31,76 +31,12 @@ export const Details: React.FC<DetailsProps> = ({
   showBorder = false,
   showBackground = false,
 }) => {
-  // Para variante custom-bottom
-  const isCustomBottom = variant === 'custom-bottom';
-  
-  // Estado para controlar si está abierto (solo para custom-bottom con icono clickeable)
-  const [isOpen, setIsOpen] = React.useState(defaultOpen);
-  
-  // Construir className con todas las clases necesarias
-  const containerClassName = [
-    styles.container,
-    styles[variant],
-    isCustomBottom && showBackground ? styles.showBackground : '',
-    isCustomBottom && showBorder ? styles.showBorder : '',
-    className
-  ].filter(Boolean).join(' ').trim();
-  
-  // Manejar el toggle del estado cuando se hace clic en el icono personalizado
-  const handleIconClick = (e: React.MouseEvent) => {
-    if (isCustomBottom && customIcon) {
-      e.preventDefault();
-      e.stopPropagation();
-      setIsOpen(!isOpen);
-    }
-  };
-  
-  // Si es custom-bottom con icono, usar wrapper para que el icono siempre sea visible
-  if (isCustomBottom && customIcon) {
-    return (
-      <div className={styles.customBottomWrapper}>
-        <details 
-          className={containerClassName} 
-          open={isOpen}
-          onToggle={(e) => {
-            // Sincronizar el estado cuando se hace clic en el summary
-            setIsOpen((e.target as HTMLDetailsElement).open);
-          }}
-        >
-          <summary className={styles.summary}>
-            <div className={styles.summaryContent}>
-              <span className={styles.summaryText}>{summary}</span>
-            </div>
-            {slotRight ? slotRight : (
-              pillText && pillVariant && (
-                <TagComponent hasDot={false} variant={pillVariant} size="small">
-                  {pillText}
-                </TagComponent>
-              )
-            )}
-          </summary>
-          <div className={styles.content}>
-            {children}
-          </div>
-        </details>
-        {/* Icono personalizado abajo (siempre visible, fuera del details) */}
-        <div 
-          className={`${styles.customBottomIcon} ${styles[iconPosition]}`}
-          onClick={handleIconClick}
-          style={{ cursor: 'pointer' }}
-        >
-          {customIcon}
-        </div>
-      </div>
-    );
-  }
-  
-  // Para otras variantes, comportamiento normal
+  const containerClassName = `${styles.container} ${styles[variant]} ${className}`.trim();
+
+    // Para variante custom-bottom
+    const isCustomBottom = variant === 'custom-bottom';
   return (
-    <details 
-      className={containerClassName} 
-      open={defaultOpen}
-    >
+    <details className={containerClassName} open={defaultOpen}>
       <summary className={styles.summary}>
         <div className={styles.summaryContent}>
           {/* Icono normal (solo si NO es custom-bottom) */}
@@ -132,6 +68,12 @@ export const Details: React.FC<DetailsProps> = ({
       </summary>
       <div className={styles.content}>
         {children}
+        {/* Icono personalizado abajo (solo si es custom-bottom) */}
+        {isCustomBottom && customIcon && (
+          <div className={`${styles.customBottomIcon} ${styles[iconPosition]}`}>
+            {customIcon}
+          </div>
+        )}
       </div>
     </details>
   );

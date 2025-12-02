@@ -109,48 +109,33 @@
 }
 
 /* --- Variante Custom Bottom --- */
-.customBottomWrapper {
-  width: 100%;
-  position: relative;
-}
-
 .custom-bottom {
   background-color: transparent;
   padding: 0.75rem 1rem;
   position: relative;
 }
 
-/* Clases adicionales para custom-bottom */
-.showBackground {
+.custom-bottom.showBackground {
   background-color: var(--color-gray-50);
   border-radius: var(--radius-large);
 }
 
-.showBorder {
+.custom-bottom.showBorder {
   border: 1px solid var(--color-gray-300);
 }
 
-/* Combinación de ambas clases */
 .custom-bottom.showBackground.showBorder {
   background-color: var(--color-gray-50);
   border: 1px solid var(--color-gray-300);
   border-radius: var(--radius-large);
 }
 
-/* Icono personalizado abajo (siempre visible, fuera del details) */
+/* Icono personalizado abajo */
 .customBottomIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-/* Cuando el details está abierto, mostrar borde arriba del icono */
-.customBottomWrapper details[open] ~ .customBottomIcon {
-  margin-top: 0;
+  margin-top: 1rem;
   padding-top: 0.75rem;
   border-top: 1px solid var(--color-gray-200);
 }
@@ -166,16 +151,11 @@
 .customBottomIcon i {
   font-size: 1.25rem;
   color: var(--color-gray-600);
-  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
 .custom-bottom:hover .customBottomIcon i {
   color: var(--color-gray-800);
-}
-
-.customBottomIcon:hover i {
-  color: var(--color-gray-900);
-  transform: scale(1.1);
 }
 
 /* Ajustar padding del contenido cuando hay icono abajo */

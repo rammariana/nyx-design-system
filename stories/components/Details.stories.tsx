@@ -16,7 +16,7 @@ Componente Details para crear elementos expandibles/colapsables usando la semán
 ## Características
 
 - **Semántica HTML**: Usa el elemento \`<details>\` nativo del navegador
-- **Variantes**: card, ghost, ghost-circle-icon, custom-bottom
+- **Variantes**: card, ghost, ghost-circle-icon
 - **Accesibilidad**: Soporte completo para lectores de pantalla y navegación por teclado
 - **Personalizable**: Píldoras de estado y slots personalizables
 - **Animaciones**: Transiciones suaves para el icono y estados
@@ -26,7 +26,6 @@ Componente Details para crear elementos expandibles/colapsables usando la semán
 - **Card**: Fondo gris claro con padding y bordes redondeados
 - **Ghost**: Transparente, ideal para listas y navegación
 - **Ghost Circle Icon**: Transparente con icono circular y texto más grande
-- **Custom Bottom**: Variante personalizable con icono al final del contenido, posición configurable (izquierda/derecha), opciones de borde y fondo
 
 ## Accesibilidad
 
@@ -56,10 +55,10 @@ Componente Details para crear elementos expandibles/colapsables usando la semán
     },
     variant: {
       control: { type: 'select' },
-      options: ['card', 'ghost', 'ghost-circle-icon', 'custom-bottom'],
+      options: ['card', 'ghost', 'ghost-circle-icon'],
       description: 'La variante visual del componente',
       table: {
-        type: { summary: "'card' | 'ghost' | 'ghost-circle-icon' | 'custom-bottom'" },
+        type: { summary: "'card' | 'ghost' | 'ghost-circle-icon'" },
         defaultValue: { summary: "'card'" },
       },
     },
@@ -102,39 +101,6 @@ Componente Details para crear elementos expandibles/colapsables usando la semán
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: "''" },
-      },
-    },
-    customIcon: {
-      control: false,
-      description: 'Icono personalizado a mostrar al final del contenido (solo para variante custom-bottom)',
-      table: {
-        type: { summary: 'ReactNode' },
-        defaultValue: { summary: 'undefined' },
-      },
-    },
-    iconPosition: {
-      control: { type: 'select' },
-      options: ['left', 'right'],
-      description: 'Posición del icono personalizado (solo para variante custom-bottom)',
-      table: {
-        type: { summary: "'left' | 'right'" },
-        defaultValue: { summary: "'left'" },
-      },
-    },
-    showBorder: {
-      control: { type: 'boolean' },
-      description: 'Mostrar borde alrededor del componente (solo para variante custom-bottom)',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-      },
-    },
-    showBackground: {
-      control: { type: 'boolean' },
-      description: 'Mostrar fondo gris claro (solo para variante custom-bottom)',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
       },
     },
   },
@@ -267,76 +233,6 @@ export const WithCustomClass: Story = {
   ],
 };
 
-// Variante Custom Bottom - Básica
-export const CustomBottom: Story = {
-  args: {
-    variant: 'custom-bottom',
-    summary: 'Variante "Custom Bottom"',
-    children: defaultChildren,
-    customIcon: <i className="bi bi-arrows-expand"></i>,
-    iconPosition: 'right',
-    showBorder: false,
-    showBackground: false,
-    defaultOpen: true,
-  },
-};
-
-// Variante Custom Bottom - Con borde y fondo
-export const CustomBottomWithBorderAndBackground: Story = {
-  args: {
-    variant: 'custom-bottom',
-    summary: 'Custom Bottom con Borde y Fondo',
-    children: defaultChildren,
-    customIcon: <i className="bi bi-eye"></i>,
-    iconPosition: 'left',
-    showBorder: true,
-    showBackground: true,
-    defaultOpen: true,
-  },
-};
-
-// Variante Custom Bottom - Icono a la izquierda
-export const CustomBottomIconLeft: Story = {
-  args: {
-    variant: 'custom-bottom',
-    summary: 'Custom Bottom - Icono Izquierda',
-    children: defaultChildren,
-    customIcon: <i className="bi bi-chevron-down"></i>,
-    iconPosition: 'left',
-    showBorder: true,
-    showBackground: true,
-    defaultOpen: false,
-  },
-};
-
-// Variante Custom Bottom - Solo borde
-export const CustomBottomBorderOnly: Story = {
-  args: {
-    variant: 'custom-bottom',
-    summary: 'Custom Bottom - Solo Borde',
-    children: defaultChildren,
-    customIcon: <i className="bi bi-info-circle"></i>,
-    iconPosition: 'right',
-    showBorder: true,
-    showBackground: false,
-    defaultOpen: true,
-  },
-};
-
-// Variante Custom Bottom - Solo fondo
-export const CustomBottomBackgroundOnly: Story = {
-  args: {
-    variant: 'custom-bottom',
-    summary: 'Custom Bottom - Solo Fondo',
-    children: defaultChildren,
-    customIcon: <i className="bi bi-gear"></i>,
-    iconPosition: 'right',
-    showBorder: false,
-    showBackground: true,
-    defaultOpen: true,
-  },
-};
-
 // Comparación de todas las variantes
 export const AllVariants: Story = {
   render: () => (
@@ -348,17 +244,6 @@ export const AllVariants: Story = {
         {defaultChildren}
       </Details>
       <Details variant="ghost-circle-icon" summary="Variante Ghost Circle Icon">
-        {defaultChildren}
-      </Details>
-      <Details 
-        variant="custom-bottom" 
-        summary="Variante Custom Bottom" 
-        customIcon={<i className="bi bi-arrows-expand"></i>}
-        iconPosition="right"
-        showBorder={true}
-        showBackground={true}
-        defaultOpen={false}
-      >
         {defaultChildren}
       </Details>
     </div>

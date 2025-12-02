@@ -53,7 +53,7 @@ export const SlideButton: React.FC<SlideButtonProps> = ({
               fontSize: '0.875rem'
             }}
           >
-            {activeState ? rightLabel : leftLabel}
+            {activeState ? leftLabel : rightLabel}
           </span>
         )}
         
@@ -78,7 +78,7 @@ export const SlideButton: React.FC<SlideButtonProps> = ({
         )}
         
         <span className={`${styles.compactToggleText} ${activeState ? styles.compactToggleTextActive : styles.compactToggleTextInactive}`}>
-          {activeState ? rightLabel : leftLabel}
+          {activeState ? leftLabel : rightLabel}
         </span>
         <div
           className={`${styles.compactToggleSwitch} ${activeState ? styles.compactToggleSwitchActive : styles.compactToggleSwitchInactive}`}
