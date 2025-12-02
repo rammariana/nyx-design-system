@@ -55,9 +55,24 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
 
     // Función para obtener las clases CSS basadas en la posición
     const getPositionClasses = (pos: TooltipPosition): string => {
-      // Normalizar la posición (convertir "left bottom" a "left-bottom" para CSS)
+      // Normalizar la posición (convertir "left top" a "left-top" para CSS)
       const normalized = pos.replace(/\s+/g, '-');
-      return `${styles.popup} ${styles[normalized] || styles[pos] || styles.bottom}`;
+      
+      // Intentar obtener la clase normalizada primero
+      const normalizedClass = styles[normalized];
+      if (normalizedClass) {
+        return `${styles.popup} ${normalizedClass}`;
+      }
+      
+      // Si no existe, intentar con la posición original
+      const originalClass = styles[pos];
+      if (originalClass) {
+        return `${styles.popup} ${originalClass}`;
+      }
+      
+      // Fallback a bottom
+      console.warn(`Tooltip: Posición "${pos}" no encontrada, usando "bottom" como fallback`);
+      return `${styles.popup} ${styles.bottom}`;
     };
 
     return (

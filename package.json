@@ -126,6 +126,7 @@
     "npm": ">=8.0.0"
   },
   "dependencies": {
+    "@camtom/nyx-design-system": "^1.4.10",
     "bootstrap-icons": "^1.13.1",
     "react-hot-toast": "^2.6.0"
   },
