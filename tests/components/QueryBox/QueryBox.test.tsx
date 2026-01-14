@@ -191,7 +191,7 @@ describe('QueryBox', () => {
     expect(screen.getByTestId('slide-button-toggle')).toBeInTheDocument();
     
     // Verificar que se muestra el texto inicial (Fast por defecto)
-    expect(screen.getByText('Pro')).toBeInTheDocument();
+    expect(screen.getByText('Fast')).toBeInTheDocument();
     
   });
 
