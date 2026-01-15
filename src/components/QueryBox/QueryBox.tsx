@@ -213,7 +213,7 @@ export const QueryBox = forwardRef<HTMLFormElement, QueryBoxProps>(
           <div className={styles.submitSection}>
             {showModelToggle && onToggleModel && (
               <SlideButton
-                activeState={model === 'fast'}
+                activeState={model === 'pro'}
                 onToggle={handleToggleModel}
                 leftLabel="Fast"
                 rightLabel="Pro"
