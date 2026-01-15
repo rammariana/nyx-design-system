@@ -191,9 +191,9 @@ describe('QueryBox', () => {
     expect(screen.getByTestId('slide-button-toggle')).toBeInTheDocument();
     
     // cuando model="fast" (default), activeState=false, muestra rightLabel="Pro")
-    // Esperamos "Pro" porque el componente está configurado con leftLabel="Fast" y rightLabel="Pro"
-    // y activeState={model === 'pro'} muestra rightLabel cuando es false
-    expect(screen.getByText('Pro')).toBeInTheDocument();
+    // Esperamos "Fast" porque el modelo por defecto es 'fast', lo que significa activeState=false
+    // y con rightLabel="Fast", se muestra "Fast"
+    expect(screen.getByText('Fast')).toBeInTheDocument();
     
   });
 

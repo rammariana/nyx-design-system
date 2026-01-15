@@ -215,8 +215,8 @@ export const QueryBox = forwardRef<HTMLFormElement, QueryBoxProps>(
               <SlideButton
                 activeState={model === 'pro'}
                 onToggle={handleToggleModel}
-                leftLabel="Fast"
-                rightLabel="Pro"
+                leftLabel="Pro"
+                rightLabel="Fast"
                 variant="compact"
                 showCircle={false}
                 showText={true}
