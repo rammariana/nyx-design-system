@@ -190,8 +190,10 @@ describe('QueryBox', () => {
     // Verificar que existe el toggle (por testid en lugar de texto)
     expect(screen.getByTestId('slide-button-toggle')).toBeInTheDocument();
     
-    // Verificar que se muestra el texto inicial (Fast por defecto)
-    expect(screen.getByText('Fast')).toBeInTheDocument();
+    // cuando model="fast" (default), activeState=false, muestra rightLabel="Pro")
+    // Esperamos "Pro" porque el componente está configurado con leftLabel="Fast" y rightLabel="Pro"
+    // y activeState={model === 'pro'} muestra rightLabel cuando es false
+    expect(screen.getByText('Pro')).toBeInTheDocument();
     
   });
 
