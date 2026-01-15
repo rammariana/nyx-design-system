@@ -1,6 +1,6 @@
 {
   "name": "@camtom/nyx-design-system",
-  "version": "1.4.19",
+  "version": "1.4.20",
   "description": "Nyx Design System - Sistema de diseño profesional para React con TypeScript, componentes accesibles y documentación completa",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
