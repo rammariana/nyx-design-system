@@ -188,6 +188,7 @@ export const QueryBox = forwardRef<HTMLFormElement, QueryBoxProps>(
                     type="button" 
                     onClick={onAttachPdf}
                     disabled={disabled}
+                    className={styles.attachFileButton}
                     data-testid="attach-pdf-button"
                     aria-label="Adjuntar PDF"
                   >
@@ -200,6 +201,7 @@ export const QueryBox = forwardRef<HTMLFormElement, QueryBoxProps>(
                     type="button" 
                     onClick={onAttachImage}
                     disabled={disabled}
+                    className={styles.attachFileButton}
                     data-testid="attach-image-button"
                     aria-label="Adjuntar imagen"
                   >

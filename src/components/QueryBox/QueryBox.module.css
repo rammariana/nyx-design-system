@@ -122,8 +122,11 @@
 .fileIcon, .fileIcon i {
   color: #9ca3af; /* Rojo para el ícono de PDF */
   font-size: 1rem;
-  background-color: #f4f4f5;
-  padding: 0.25rem;
+}
+
+.attachFileButton {
+  background-color: #f4f4f5 !important;
+  padding: 0.25rem !important;
 }
 
 .fileInfo {
