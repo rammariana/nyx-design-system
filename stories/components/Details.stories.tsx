@@ -103,6 +103,30 @@ Componente Details para crear elementos expandibles/colapsables usando la semán
         defaultValue: { summary: "''" },
       },
     },
+    showIconTooltip: {
+      control: { type: 'boolean' },
+      description: 'Habilita el tooltip en el icono de expansión',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    iconTooltipText: {
+      control: { type: 'text' },
+      description: 'Texto del tooltip cuando el Details está cerrado',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: "'Expandir detalles'" },
+      },
+    },
+    iconTooltipTextOpen: {
+      control: { type: 'text' },
+      description: 'Texto del tooltip cuando el Details está abierto',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: "'Cerrar detalles'" },
+      },
+    },
   },
   tags: ['autodocs'],
 };
@@ -390,6 +414,79 @@ export const AccessibilityExample: Story = {
     docs: {
       description: {
         story: 'Ejemplos que demuestran las características de accesibilidad del componente Details.',
+      },
+    },
+  },
+};
+
+// Ejemplo con tooltip en el icono
+export const WithIconTooltip: Story = {
+  args: {
+    variant: 'card',
+    summary: 'Con Tooltip en el Icono',
+    children: defaultChildren,
+    showIconTooltip: true,
+    iconTooltipText: 'Expandir para ver más información',
+    iconTooltipTextOpen: 'Cerrar detalles',
+    defaultOpen: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'El tooltip aparece al hacer hover sobre el icono de expansión. El texto cambia según si está abierto o cerrado.',
+      },
+    },
+  },
+};
+
+// Ejemplo con tooltip personalizado
+export const WithCustomIconTooltip: Story = {
+  args: {
+    variant: 'ghost',
+    summary: 'Tooltip Personalizado',
+    children: defaultChildren,
+    showIconTooltip: true,
+    iconTooltipText: 'Haz clic para expandir',
+    iconTooltipTextOpen: 'Haz clic para colapsar',
+    defaultOpen: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Ejemplo con textos personalizados para el tooltip del icono.',
+      },
+    },
+  },
+};
+
+// Comparación con y sin tooltip
+export const TooltipComparison: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+      <Details 
+        variant="card" 
+        summary="Sin Tooltip (comportamiento por defecto)"
+        defaultOpen
+      >
+        {defaultChildren}
+      </Details>
+      
+      <Details 
+        variant="card" 
+        summary="Con Tooltip en el Icono"
+        showIconTooltip={true}
+        iconTooltipText="Expandir detalles"
+        iconTooltipTextOpen="Cerrar detalles"
+        defaultOpen={false}
+      >
+        {defaultChildren}
+      </Details>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Comparación entre un Details sin tooltip y otro con tooltip habilitado en el icono.',
       },
     },
   },
