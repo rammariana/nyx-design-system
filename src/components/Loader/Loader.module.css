@@ -4,6 +4,8 @@
   align-items: center;
   gap: var(--spacing-3);
   width: 100%;
+  flex: 1;
+  min-width: 0;
 }
 
 .fullscreen {
@@ -164,6 +166,9 @@
   color: var(--color-gray-600);
   font-weight: var(--font-medium);
   font-size: var(--text-sm);
+  white-space: nowrap; /* Agregar esto para evitar saltos de línea */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .fullscreen .message {
