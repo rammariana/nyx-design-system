@@ -1,8 +1,8 @@
-import React, { forwardRef } from 'react';
-import styles from './Loader.module.css';
+import React, { forwardRef } from "react";
+import styles from "./Loader.module.css";
 
-export type LoaderVariant = 'spinner' | 'dots' | 'pulse' | 'fullscreen';
-export type LoaderSize = 'small' | 'medium' | 'large';
+export type LoaderVariant = "spinner" | "dots" | "pulse" | "fullscreen";
+export type LoaderSize = "small" | "medium" | "large";
 
 export interface LoaderProps {
   variant?: LoaderVariant;
@@ -15,29 +15,31 @@ export interface LoaderProps {
 }
 
 export const Loader = forwardRef<HTMLDivElement, LoaderProps>(
-  ({
-    variant = 'spinner',
-    size = 'medium',
-    message,
-    progress,
-    className = '',
-    color,
-    fullScreen = false,
-  }, ref) => {
+  (
+    {
+      variant = "spinner",
+      size = "medium",
+      message,
+      progress,
+      className = "",
+      color,
+      fullScreen = false,
+    },
+    ref
+  ) => {
     const containerClassName = [
       fullScreen ? styles.fullscreen : styles.inline,
-      styles[variant],
       styles[size],
       className,
     ]
       .filter(Boolean)
-      .join(' ');
+      .join(" ");
 
     const spinnerStyle = color ? { backgroundColor: color } : undefined;
 
     const renderSpinner = () => {
       switch (variant) {
-        case 'dots':
+        case "dots":
           return (
             <div className={styles.dotsContainer}>
               {Array.from({ length: 3 }).map((_, i) => (
@@ -45,11 +47,11 @@ export const Loader = forwardRef<HTMLDivElement, LoaderProps>(
               ))}
             </div>
           );
-        
-        case 'pulse':
+
+        case "pulse":
           return <div className={styles.pulse} style={spinnerStyle} />;
-        
-        case 'fullscreen':
+
+        case "fullscreen":
           return (
             <div className={styles.orbitContainer}>
               {Array.from({ length: 6 }).map((_, i) => (
@@ -57,7 +59,7 @@ export const Loader = forwardRef<HTMLDivElement, LoaderProps>(
               ))}
             </div>
           );
-        
+
         default: // spinner
           return <div className={styles.spinner} style={spinnerStyle} />;
       }
@@ -71,8 +73,8 @@ export const Loader = forwardRef<HTMLDivElement, LoaderProps>(
           {progress !== undefined && (
             <div className={styles.progressContainer}>
               <div className={styles.progressBar}>
-                <div 
-                  className={styles.progressFill} 
+                <div
+                  className={styles.progressFill}
                   style={{ width: `${Math.min(100, Math.max(0, progress))}%` }}
                 />
               </div>
@@ -95,4 +97,4 @@ export const Loader = forwardRef<HTMLDivElement, LoaderProps>(
   }
 );
 
-Loader.displayName = 'Loader';
+Loader.displayName = "Loader";
