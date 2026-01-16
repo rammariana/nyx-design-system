@@ -203,6 +203,8 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex: 1; /* Permitir que ocupe el espacio disponible */
+  min-width: 0; /* Permitir que se comprima si es necesario pero con contenido visible */
 }
 
 /* Contenedor para los elementos de la derecha (toggle y enviar) */
