@@ -176,7 +176,7 @@ export const QueryBox = forwardRef<HTMLFormElement, QueryBoxProps>(
           <div className={styles.actions}>
             {isLoading ? (
               <Loader 
-                variant="dots" 
+                variant="spinner" 
                 size="small" 
                 message={loadingMessage}
               />
